@@ -10,10 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_08_121931) do
+ActiveRecord::Schema.define(version: 2021_05_08_131934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "memoirs", force: :cascade do |t|
+    t.string "name"
+    t.date "sunrise"
+    t.date "sunset"
+    t.text "thoughts"
+    t.string "shareble_id"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_memoirs_on_user_id"
+  end
+
+  create_table "memories", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "memoir_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["memoir_id"], name: "index_memories_on_memoir_id"
+    t.index ["user_id"], name: "index_memories_on_user_id"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string "img_url"
+    t.string "caption"
+    t.bigint "user_id", null: false
+    t.bigint "memoir_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["memoir_id"], name: "index_photos_on_memoir_id"
+    t.index ["user_id"], name: "index_photos_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +60,9 @@ ActiveRecord::Schema.define(version: 2021_05_08_121931) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "memoirs", "users"
+  add_foreign_key "memories", "memoirs"
+  add_foreign_key "memories", "users"
+  add_foreign_key "photos", "memoirs"
+  add_foreign_key "photos", "users"
 end

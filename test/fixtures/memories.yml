@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyText
+  user: one
+  memoir: one
+  created_at: 2021-05-08 09:17:31
+
+two:
+  content: MyText
+  user: two
+  memoir: two
+  created_at: 2021-05-08 09:17:31

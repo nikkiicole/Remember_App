@@ -4,6 +4,8 @@ import SignIn from "./Components/SignIn/SignIn.jsx";
 import SignUp from "./Components/SignUp/SignUp.jsx";
 import Home from "./Components/Home/Home.jsx"
 import Header from "./Components/Header/Header.jsx"
+import UserHome from './Components/UserHome/UserHome.jsx'
+import CreateMemoir from "./Components/CreateMemoir/CreateMemoir.jsx"
 import { useEffect, useState } from "react";
 import {verifyUser} from "./services/auth"
 function App() {
@@ -27,8 +29,14 @@ function App() {
         <Route path="/login">
           <SignIn verify={verify} />
         </Route>
-        <Route path="/">
+        <Route exact path="/">
           <Home />
+        </Route>
+        <Route path="/user-home">
+          <UserHome currentUser={currentUser}/>
+        </Route>
+        <Route path="/create-memoir">
+          <CreateMemoir />
         </Route>
       </Switch>
     </div>

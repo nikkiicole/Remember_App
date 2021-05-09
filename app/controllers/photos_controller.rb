@@ -1,6 +1,7 @@
-class PhotosController < ApplicationController
+class PhotosController < ApiController
   before_action :set_photo, only: [:show, :update, :destroy]
-
+  skip_before_action :authenticate_user!, only: %i[index show]
+  
   # GET /photos
   def index
     @photos = Photo.all

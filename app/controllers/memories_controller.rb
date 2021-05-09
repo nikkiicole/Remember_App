@@ -1,5 +1,6 @@
-class MemoriesController < ApplicationController
+class MemoriesController < ApiController
   before_action :set_memory, only: [:show, :update, :destroy]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   # GET /memories
   def index
@@ -18,9 +19,13 @@ class MemoriesController < ApplicationController
     @memory = Memory.new(memory_params)
     @memory.user = current_user
     @memory.memoir = Memoir.find(memory_params[:memoir_id])
+
     # @memory.memoir = current_user.memoir_id
     # @memory.memoir = current_user.memoirs.(params)
-
+#     @user = User.find(params[:user_id])
+#    @memoir = @user.memoir.build(memory_params)
+# @memoir = Memoir.find(params[:memoir_id])
+# @memory = @memoir.memories.build(memory_params)
 
     if @memory.save
       render json: @memory, status: :created

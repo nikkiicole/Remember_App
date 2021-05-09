@@ -10,15 +10,17 @@ class MemoirsController < ApplicationController
 
   # GET /memoirs/1
   def show
-    render json: @memoir
+    render json: @memoir, include: [:memories, :photos]
   end
 
   # POST /memoirs
+# this allows only the current user to be set as the user associated with the created memoir
   def create
     @memoir = Memoir.new(memoir_params)
-
+    @memoir.user = current_user
+    
     if @memoir.save
-      render json: @memoir, status: :created, location: @memoir
+      render json: @memoir, status: :created
     else
       render json: @memoir.errors, status: :unprocessable_entity
     end
@@ -27,6 +29,7 @@ class MemoirsController < ApplicationController
   # PATCH/PUT /memoirs/1
   def update
     if @memoir.update(memoir_params)
+      @memoir.user = current_user
       render json: @memoir
     else
       render json: @memoir.errors, status: :unprocessable_entity
@@ -35,7 +38,10 @@ class MemoirsController < ApplicationController
 
   # DELETE /memoirs/1
   def destroy
+   if @memoir.user = current_user
     @memoir.destroy
+    render json: "Your memoir has been deleted"
+   end
   end
 
   private
@@ -46,6 +52,6 @@ class MemoirsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def memoir_params
-      params.fetch(:memoir, {})
+      params.require(:memoir).permit(:name, :thoughts, :shareble_id, :sunrise, :sunset)
     end
 end

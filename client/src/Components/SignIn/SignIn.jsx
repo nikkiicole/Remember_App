@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { loginUser } from "../../../src/services/auth.js";
 
-function SignIn(props) {
+function SignIn() {
   const [input, setInput] = useState({});
 
   const handleChange = (e) => {
@@ -16,7 +16,7 @@ function SignIn(props) {
     e.preventDefault();
     let res = await loginUser(input);
     console.log(res);
-    props.verify();
+
   };
   return (
     <div>

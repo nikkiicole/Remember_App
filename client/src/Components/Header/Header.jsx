@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { Link } from "react-router-dom";
 
-function Header() {
+function Header(props) {
   return (
     <div>
-      Header
+      <Link to="/">Home</Link>
+      <Link to="/login">Sign In</Link>
+      <Link to="/signup">Sign Up</Link>
     </div>
   )
 }

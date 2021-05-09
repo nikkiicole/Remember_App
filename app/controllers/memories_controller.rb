@@ -22,6 +22,7 @@ class MemoriesController < ApiController
 
     # @memory.memoir = current_user.memoir_id
     # @memory.memoir = current_user.memoirs.(params)
+    
 #     @user = User.find(params[:user_id])
 #    @memoir = @user.memoir.build(memory_params)
 # @memoir = Memoir.find(params[:memoir_id])

@@ -141,7 +141,8 @@ src
 - Better restriction on User Profile allowing the creator to accept requests ro add their create memoir to another users account.
 
 ---
-
+## Notes
+-https://github.com/cgibsonmm/Devise_JWT_Warden used for devise authentication
 ## Code Showcase
 
 ## Code Issues & Resolutions

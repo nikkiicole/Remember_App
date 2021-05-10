@@ -25,13 +25,13 @@ function CreateMemoir() {
         <label>Name</label>
         <input name="name" type="text" value={input.name} />
         <label>Sunrise</label>
-        <input name="img_url" type="text" value={input.sunrise} />
+        <input name="sunrise" type="text" value={input.sunrise} />
         <label>Sunset</label>
-        <input name="img_url" type="text" value={input.sunset} />
+        <input name="sunset" type="text" value={input.sunset} />
         <label>Thoughts</label>
-        <input name="img_url" type="text" value={input.thoughts} />
+        <input name="thoughts" type="text" value={input.thoughts} />
         <label>Shareable Id</label>
-        <input name="img_url" type="text" value={input.shareble_id} />
+        <input name="shareble_id" type="text" value={input.shareble_id} />
         <button>Submit</button>
       </form>
     </div>

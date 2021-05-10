@@ -11,7 +11,7 @@ export const getUsersMemoirs = async () => {
   return res.data;
 };
 
-export const createMemoir = async () => {
-  const res = await api.post("/memoirs");
+export const createMemoir = async (formData) => {
+  const res = await api.post("/memoirs", {memoirs: formData});
   return res.data;
 }

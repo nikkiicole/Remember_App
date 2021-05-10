@@ -14,7 +14,7 @@ function MemoryGallery() {
     const res = await getMemories(id);
     setMemories(res);
     console.log(res)
-    console.log(id)
+    // console.log(id)
   }
 
   // i need to set up some type of filter that will filter out the 
@@ -25,11 +25,23 @@ function MemoryGallery() {
   return (
     <div>
       <h1>Memory Gallery</h1>
-      {filteredMemory.map((memory) => {
+      {memories.map((memory) => {
         return <h3>{memory.content}</h3>;
         
       
       })}
+      {/* {filteredMemory.map((memory) => {
+        return <h3>{memory.content}</h3>;
+        
+      
+      })} */}
+
+      {/* {memories.map((memory) => {
+  if (id === memory.memoir_id) {
+    return <h3>{memory.content}</h3>;
+  }
+        
+      })} */}
 
 {/* {memories.filter(memory => memory.memoir_id === id) => {
         return <h3>{memory.content}</h3>;
@@ -40,9 +52,9 @@ function MemoryGallery() {
         return <h3>{memory.content}</h3>
       
 } */}
-        {/* {memories.filter(memory => memory.memoir_id === id).map(filteredMemory => (
+        {memories.filter(memory => memory.memoir_id === id).map(filteredMemory => (
     <li>{filteredMemory.content}</li>
-        ))} */}
+        ))}
       {/* {memories.filter(memory => memory.memoir_id === id)
         return <h3>{memory.content}</h3>
       }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams} from "react-router-dom";
+import { useParams, Link} from "react-router-dom";
 import {getMemoir} from "../../services/memoir.jsx"
 
 function MemoirHome() {
@@ -25,6 +25,8 @@ function MemoirHome() {
       <h2>Sunset: {memoir.sunset}</h2>
       <h2>Family Thoughts: {memoir.thoughts}</h2>
       <h2>Shareable Id: {memoir.shareble_id}</h2>
+      <Link to={`/user-home/${id}/memories`}>Memories</Link>
+      <Link to={`/user-home/${id}/photos`}>Photos</Link>
     </div>
   )
 }

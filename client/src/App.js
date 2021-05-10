@@ -8,6 +8,7 @@ import UserHome from './Components/UserHome/UserHome.jsx'
 import CreateMemoir from "./Components/CreateMemoir/CreateMemoir.jsx"
 import MemoirHome from "./Components/MemoirHome/MemoirHome.jsx"
 import MemoryGallery from "./Components/MemoryGallery/MemoryGallery.jsx"
+import PhotoGallery from "./Components/PhotoGallery/PhotoGallery.jsx"
 import { useEffect, useState } from "react";
 import {verifyUser} from "./services/auth"
 function App() {
@@ -46,6 +47,9 @@ function App() {
         </Route>
         <Route path="/user-home/:id/memories">
           <MemoryGallery />
+        </Route>
+        <Route path="/user-home/:id/photos">
+          <PhotoGallery />
         </Route>
       </Switch>
     </div>

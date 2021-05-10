@@ -25,7 +25,7 @@ export const getMemoir = async (id) => {
   return res.data;
 };
 
-export const getMemories = async (id) => {
+export const getMemory = async (id) => {
   const res = await api.get(`/memoirs/${id}/memories`);
   return res.data;
 };

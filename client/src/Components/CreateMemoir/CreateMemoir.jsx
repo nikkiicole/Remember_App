@@ -1,8 +1,13 @@
 import React, { useState } from "react";
-import {createMemoir} from "../../services/memoir.jsx"
+import { createMemoir } from "../../services/memoir.jsx"
+// import {useParams} from "react-router-dom"
 
 function CreateMemoir() {
-  const [input, setInput] = useState({});
+  // let { id } = useParams()
+
+  const [input, setInput] = useState({
+    // memoir: id
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,7 +37,8 @@ function CreateMemoir() {
         <input name="thoughts" type="text" value={input.thoughts} />
         <label>Shareable Id</label>
         <input name="shareble_id" type="text" value={input.shareble_id} />
-        <button>Submit</button>
+
+        <input type="submit"/>
       </form>
     </div>
   )

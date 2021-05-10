@@ -6,12 +6,21 @@ const api = axios.create({
   baseURL: baseUrl,
 });
 
+let token = localStorage.getItem("authToken")
+
 export const getUsersMemoirs = async () => {
+  api.defaults.headers.common.authorization = `Bearer ${token}`;
   const res = await api.get("/userprofile");
-  return res.data;
+  return res.data.memoirs;
 };
 
 export const createMemoir = async (formData) => {
-  const res = await api.post("/memoirs", {memoirs: formData});
+  api.defaults.headers.common.authorization = `Bearer ${token}`;
+  const res = await api.post("/memoirs", formData);
   return res.data;
 }
+
+export const getMemoir = async (id) => {
+  const res = await api.get(`/memoirs/${id}`);
+  return res.data;
+};

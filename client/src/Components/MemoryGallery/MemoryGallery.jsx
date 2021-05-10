@@ -19,8 +19,8 @@ function MemoryGallery() {
 
   // i need to set up some type of filter that will filter out the 
   // currently selected memoirs memories
-  let filteredMemory = memories.filter(memory => memory.memoir_id === id)
-
+//   let filteredMemory = memories.filter(memory => memory.memoir_id === parseInt(id))  
+// console.log(filteredMemory, memories, parseInt(id))
  
   return (
     <div>
@@ -30,35 +30,7 @@ function MemoryGallery() {
         
       
       })}
-      {/* {filteredMemory.map((memory) => {
-        return <h3>{memory.content}</h3>;
-        
-      
-      })} */}
 
-      {/* {memories.map((memory) => {
-  if (id === memory.memoir_id) {
-    return <h3>{memory.content}</h3>;
-  }
-        
-      })} */}
-
-{/* {memories.filter(memory => memory.memoir_id === id) => {
-        return <h3>{memory.content}</h3>;
-        
-      
-      }} */}
-      {/* {memories.filter(memory => memory.memoir_id === id).map
-        return <h3>{memory.content}</h3>
-      
-} */}
-        {memories.filter(memory => memory.memoir_id === id).map(filteredMemory => (
-    <li>{filteredMemory.content}</li>
-        ))}
-      {/* {memories.filter(memory => memory.memoir_id === id)
-        return <h3>{memory.content}</h3>
-      }
-       */}
     </div>
   )
 }

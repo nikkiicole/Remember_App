@@ -7,6 +7,6 @@ const api = axios.create({
 });
 
 export const getMemories = async (id) => {
-  const res = await api.get(`/memoirs/${id}/memories`);
-  return res.data;
+  const res = await api.get(`/memoirs/${id}`);
+  return res.data.memories;
 };

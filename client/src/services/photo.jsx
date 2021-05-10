@@ -7,6 +7,6 @@ const api = axios.create({
 });
 
 export const getPhotos = async (id) => {
-  const res = await api.get(`/memoirs/${id}/photos`);
-  return res.data;
+  const res = await api.get(`/memoirs/${id}`);
+  return res.data.photos;
 };

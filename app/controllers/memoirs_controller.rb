@@ -1,7 +1,7 @@
 class MemoirsController < ApiController
   before_action :set_memoir, only: [:show, :update, :destroy]
   skip_before_action :authenticate_user!, only: %i[index show]
-  
+
   # GET /memoirs
   def index
     @memoirs = Memoir.all

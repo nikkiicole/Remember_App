@@ -19,6 +19,7 @@ function MemoirHome() {
 
   return (
     <div>
+      <img src={memoir.profile_picture} alt= "Profile Photo" />
       <h1>{`${memoir.name}'s Memoir`}</h1>
       <h2>Name: {memoir.name}</h2>
       <h2>Sunrise: {memoir.sunrise}</h2>

@@ -53,6 +53,6 @@ class MemoirsController < ApiController
 
     # Only allow a list of trusted parameters through.
     def memoir_params
-      params.require(:memoir).permit(:name, :thoughts, :shareble_id, :sunrise, :sunset)
+      params.require(:memoir).permit(:name, :thoughts, :shareble_id, :sunrise, :sunset, :profile_picture)
     end
 end

@@ -6,7 +6,15 @@ const api = axios.create({
   baseURL: baseUrl,
 });
 
+let token = localStorage.getItem("authToken")
+
 export const getPhotos = async (id) => {
   const res = await api.get(`/memoirs/${id}`);
   return res.data.photos;
 };
+
+export const createPhoto = async (id, formData) => {
+  api.defaults.headers.common.authorization = `Bearer ${token}`;
+  const res = await api.post(`/memoirs/${id}/photos`, formData);
+  return res.data.photos;
+}

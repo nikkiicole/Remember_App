@@ -2,7 +2,9 @@ import React from 'react'
 
 import { useState, useEffect } from "react";
 import { useParams} from "react-router-dom";
-import {getPhotos} from "../../services/photo.jsx"
+import { getPhotos } from "../../services/photo.jsx"
+import CreatePhoto from "../CreatePhoto/CreatePhoto.jsx"
+
 
 function PhotoGallery() {
   const { id } = useParams();
@@ -19,6 +21,7 @@ function PhotoGallery() {
   return (
     <div>
       <h1>Photo Gallery</h1>
+      <CreatePhoto />
       {photos.map((photo) => {
         return (
           <div>

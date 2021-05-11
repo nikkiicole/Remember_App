@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get "/userprofile", to: "users#show"
   # get "/allusers", to: "users#index"
+  get "/search/:name", to: "memoirs#search"
 
 # devise provided routes
   devise_for :users, controllers: { registrations: 'registrations' }

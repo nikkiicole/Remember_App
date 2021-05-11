@@ -45,6 +45,10 @@ class MemoirsController < ApiController
    end
   end
 
+  def search
+    @results = Memoir.name_search(params[:name])
+    render json: @results 
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_memoir
@@ -55,4 +59,7 @@ class MemoirsController < ApiController
     def memoir_params
       params.require(:memoir).permit(:name, :thoughts, :shareble_id, :sunrise, :sunset, :profile_picture)
     end
+
+
+
 end

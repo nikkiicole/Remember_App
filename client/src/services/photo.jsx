@@ -16,5 +16,11 @@ export const getPhotos = async (id) => {
 export const createPhoto = async (id, formData) => {
   api.defaults.headers.common.authorization = `Bearer ${token}`;
   const res = await api.post(`/memoirs/${id}/photos`, formData);
-  return res.data.photos;
+  return res.data;
 }
+
+export const deletePhoto = async (id) => {
+  api.defaults.headers.common.authorization = `Bearer ${token}`;
+  const res = await api.delete(`/memoirs/${id}/photos/${id}`);
+  return res.data;
+};

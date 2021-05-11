@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {createPhoto} from "../../services/photo.jsx"
 
-function CreatePhoto() {
+function CreatePhoto(props) {
 
   const [input, setInput] = useState({
 
@@ -17,7 +17,7 @@ function CreatePhoto() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await createPhoto(input);
+    const res = await createPhoto(props.id, input);
     console.log(res);
   };
 

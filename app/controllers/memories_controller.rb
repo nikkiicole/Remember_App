@@ -18,7 +18,7 @@ class MemoriesController < ApiController
   def create
     @memory = Memory.new(memory_params)
     @memory.user = current_user
-    @memory.memoir = Memoir.find(memory_params[:memoir_id])
+    @memory.memoir = Memoir.find(params[:memoir_id])
 
     # @memory.memoir = current_user.memoir_id
     # @memory.memoir = current_user.memoirs.(params)
@@ -39,7 +39,7 @@ class MemoriesController < ApiController
   def update
     if @memory.update(memory_params)
       @memory.user = current_user
-      @memory.memoir = Memoir.find(memory_params[:memoir_id])
+      @memory.memoir = Memoir.find(params[:memoir_id])
       render json: @memory
     else
       render json: @memory.errors, status: :unprocessable_entity

@@ -18,7 +18,7 @@ class PhotosController < ApiController
   def create
     @photo = Photo.new(photo_params)
     @photo.user = current_user
-    @photo.memoir = Memoir.find(photo_params[:memoir_id])
+    @photo.memoir = Memoir.find(params[:memoir_id])
 
     if @photo.save
       render json: @photo, status: :created
@@ -31,7 +31,7 @@ class PhotosController < ApiController
   def update
     if @photo.update(photo_params)
       @photo.user = current_user
-      @photo.memoir = Memoir.find(photo_params[:memoir_id])
+      @photo.memoir = Memoir.find(params[:memoir_id])
       render json: @photo
     else
       render json: @photo.errors, status: :unprocessable_entity
@@ -40,9 +40,9 @@ class PhotosController < ApiController
 
   # DELETE /photos/1
   def destroy
-   if @photo.destroy
-    render json: "Your photo has been deleted"
-   end
+   @photo.destroy
+    render json: {message: "Your photo has been deleted" }
+   
   end
 
   private

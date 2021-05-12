@@ -1,10 +1,23 @@
 import axios from "axios";
 
+// const production = "https://alwaysremember-api.herokuapp.com/"
 const baseUrl = "http://localhost:3000";
 
+let apiUrl;
+const apiUrls = {
+  development: "http://localhost:3000",
+  production: "https://alwaysremember-api.herokuapp.com/"
+}
+
+if (window.location.hostname === "localhost") {
+  apiUrl = apiUrls.development;
+} else {
+  apiUrl = apiUrls.production;
+}
 const api = axios.create({
-  baseURL: baseUrl,
+  baseURL: apiUrl,
 });
+
 
 export const registerUser = async (formData) => {
   const res = await api.post("/users", formData);

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import {createPhoto} from "../../services/photo.jsx"
 
 function CreatePhoto(props) {

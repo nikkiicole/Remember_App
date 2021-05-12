@@ -1,7 +1,7 @@
 class Memoir < ApplicationRecord
-  belongs_to :user
-  has_many :memories
-  has_many :photos
+  belongs_to :user 
+  has_many :memories, dependent: :destroy
+  has_many :photos, dependent: :destroy
 
   validates :name, presence: true
   validates :sunrise, presence: true

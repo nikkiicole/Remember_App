@@ -1,6 +1,6 @@
 import axios from "axios";
 
-// const production = "https://alwaysremember-api.herokuapp.com/"
+const production = "https://alwaysremember-api.herokuapp.com/"
 const baseUrl = "http://localhost:3000";
 
 let apiUrl;

@@ -1,11 +1,17 @@
-import { useState } from 'react'
+import { useState, useEffect} from 'react'
 import {createPhoto} from "../../services/photo.jsx"
+
 
 function CreatePhoto(props) {
 
   const [input, setInput] = useState({
 
   });
+  // const [toggle, setToggle] = useState(false);
+
+  // useEffect(() => {
+
+  // }, [toggle]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,7 +24,9 @@ function CreatePhoto(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await createPhoto(props.id, input);
+    props.setToggle((prevState)=> !prevState)
     console.log(res);
+
   };
 
   return (

@@ -1,4 +1,4 @@
-import { Route, Switch, useParams } from "react-router-dom";
+import { Route, Switch, useParams, useHistory } from "react-router-dom";
 import './App.css';
 import SignIn from "./Components/SignIn/SignIn.jsx";
 import SignUp from "./Components/SignUp/SignUp.jsx";
@@ -12,24 +12,33 @@ import MemoirHome from "./Components/MemoirHome/MemoirHome.jsx"
 import MemoryGallery from "./Components/MemoryGallery/MemoryGallery.jsx"
 import PhotoGallery from "./Components/PhotoGallery/PhotoGallery.jsx"
 import { useEffect, useState } from "react";
-import {verifyUser} from "./services/auth"
+import { verifyUser } from "./services/auth"
+
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
+
   const { id } = useParams();
+  const history = useHistory();
 
   useEffect(() => {
     verify();
   }, []);
 
-
+  const logout = async () => {
+    await localStorage.clear()
+    setCurrentUser(null)
+    history.push("/login")
+  }
 
   const verify = async () => {
     let user = await verifyUser();
     setCurrentUser(user);
   };
+
+
   return (
     <div className="App">
-      <Header />
+      <Header currentUser={currentUser} logout={logout} />
       <Switch>
         <Route path="/signup">
           <SignUp />
@@ -60,7 +69,7 @@ function App() {
           <EditMemory />
         </Route>
         <Route path="/user-home/:id/photos">
-          <PhotoGallery />
+          <PhotoGallery currentUser={currentUser}/>
         </Route>
       </Switch>
     </div>

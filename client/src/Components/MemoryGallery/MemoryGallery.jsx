@@ -8,10 +8,11 @@ import { deleteMemory } from "../../services/memory.js"
 function MemoryGallery(props) {
   const { id } = useParams();
   const [memories, setMemories] = useState([])
+  const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
     fetchMemories();
-  }, []);
+  }, [toggle]);
 
   const fetchMemories = async () => {
     const res = await getMemories(id);
@@ -36,16 +37,16 @@ function MemoryGallery(props) {
       {memories.map((memory) => {
         return(
         <div>
-            <h3>{memory.content}</h3>;
-            <button onClick={() => deleteMemoryF(memory.id)}>Delete</button>
-
-            {/* {props.currentUser && props.currentUser.id === memory.user_id ? */}
-            <Link to={`/user-home/${memory.id}/memories/edit-memoir/${id}`}>Edit Memoir</Link>
-       {/* : null} */}
+            <h3>{memory.content}</h3>
+            
+            {props.currentUser && props.currentUser.id === memory.user_id ?
+            <button onClick={() => { if (window.confirm('Are you sure you wish to delete this memory?')) deleteMemoryF(memory.id)} }>Delete</button>: null}
+            {props.currentUser && props.currentUser.id === memory.user_id ?
+            <Link to={`/user-home/${memory.id}/memories/edit-memoir/${id}`}>Edit Memory</Link>: null}
         </div>
         )
       })}
-   <CreateMemory id={id} />
+   <CreateMemory setToggle={setToggle} id={id} />
     </div>
   )
 }

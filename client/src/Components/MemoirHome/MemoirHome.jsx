@@ -34,9 +34,9 @@ function MemoirHome(props) {
       <h2>Family Thoughts: {memoir.thoughts}</h2>
       <h2>Shareable Id: {memoir.shareble_id}</h2>
       {props.currentUser && props.currentUser.id === memoir.user_id ?
-        <button onClick={() => deleteMemoir(memoir.id)}>Delete</button> : null}
+        <button onClick={() => { if (window.confirm('Are you sure you wish to delete this memoir?')) deleteMemoir(memoir.id) }}>Delete</button> : null}
       
-           {props.currentUser && props.currentUser.id === memoir.user_id ?
+      {props.currentUser && props.currentUser.id === memoir.user_id ?
        <Link to={`/edit-memoir/${memoir.id}`}>Edit Memoir</Link>: null}
       
       

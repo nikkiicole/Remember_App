@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { loginUser } from "../../../src/services/auth.js";
+import {useHistory} from "react-router-dom"
 
 function SignIn(props) {
   const [input, setInput] = useState({});
+  const history = useHistory();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,7 +19,7 @@ function SignIn(props) {
     let res = await loginUser(input);
     console.log(res);
     props.verify();
-
+    history.push("/user-home")
   };
   return (
     <div>

@@ -16,6 +16,7 @@ function CreateMemory(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await createMemory(props.id, input);
+    props.setToggle((prevState)=> !prevState)
     console.log(res);
   };
 

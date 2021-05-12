@@ -1,20 +1,21 @@
 import React from 'react'
 
 import { useState, useEffect } from "react";
-import { useParams, useHistory} from "react-router-dom";
+import { useParams} from "react-router-dom";
 import { getPhotos } from "../../services/photo.jsx"
 import CreatePhoto from "../CreatePhoto/CreatePhoto.jsx"
 import { deletePhoto } from "../../services/photo.jsx"
 
 
 
-function PhotoGallery() {
+function PhotoGallery(props) {
   const { id } = useParams();
   const [photos, setPhotos] = useState([])
+  const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
     fetchPhotos();
-  }, []);
+  }, [toggle]);
 
   const fetchPhotos = async () => {
     const res = await getPhotos(id);
@@ -24,20 +25,23 @@ function PhotoGallery() {
   const deletePicture = async (id) => {
     await deletePhoto(id);
     setPhotos(prevState => prevState.filter(photo => photo.id !== id));
+    
   }
 
   return (
     <div>
       <h1>Photo Gallery</h1>
 
-      <CreatePhoto id={id} />
-      
+      <CreatePhoto setToggle={setToggle} id={id} />
+
       {photos.map((photo) => {
         return (
           <div>
         <img src={photo.img_url} alt={photo.caption} />
             <h1>{photo.caption}</h1>
-            <button onClick={() => deletePicture(photo.id)}>Delete</button>
+            {props.currentUser && props.currentUser.id === photo.user_id ?
+            <button onClick={() => deletePicture(photo.id)}>Delete</button>: null}
+            
           </div>
         )
   

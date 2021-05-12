@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { editMemoir } from "../../services/memoir.jsx"
-import {useParams} from "react-router-dom"
+import {useParams, useHistory} from "react-router-dom"
 
 function EditMemoir() {
   let { id } = useParams()
+  const history = useHistory();
 
   const [input, setInput] = useState({
     // memoir: id
@@ -21,6 +22,7 @@ function EditMemoir() {
     e.preventDefault();
     const res = await editMemoir(id, input);
     console.log(res);
+    history.push(`/user-home/${id}`)
   };
 
   return (

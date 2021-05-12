@@ -23,6 +23,7 @@ function MemoryGallery() {
     await deleteMemory(id);
     setMemories(prevState => prevState.filter(memory => memory.id !== id));
   }
+  
   // i need to set up some type of filter that will filter out the 
   // currently selected memoirs memories
 //   let filteredMemory = memories.filter(memory => memory.memoir_id === parseInt(id))  

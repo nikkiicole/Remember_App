@@ -1,4 +1,4 @@
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useParams } from "react-router-dom";
 import './App.css';
 import SignIn from "./Components/SignIn/SignIn.jsx";
 import SignUp from "./Components/SignUp/SignUp.jsx";
@@ -6,6 +6,7 @@ import Home from "./Components/Home/Home.jsx"
 import Header from "./Components/Header/Header.jsx"
 import UserHome from './Components/UserHome/UserHome.jsx'
 import CreateMemoir from "./Components/CreateMemoir/CreateMemoir.jsx"
+import EditMemoir from "./Components/EditMemoir/EditMemoir.jsx"
 import MemoirHome from "./Components/MemoirHome/MemoirHome.jsx"
 import MemoryGallery from "./Components/MemoryGallery/MemoryGallery.jsx"
 import PhotoGallery from "./Components/PhotoGallery/PhotoGallery.jsx"
@@ -13,10 +14,13 @@ import { useEffect, useState } from "react";
 import {verifyUser} from "./services/auth"
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
+  const { id } = useParams();
 
   useEffect(() => {
     verify();
   }, []);
+
+
 
   const verify = async () => {
     let user = await verifyUser();
@@ -43,7 +47,10 @@ function App() {
           <CreateMemoir />
         </Route>
         <Route exact path="/user-home/:id">
-          <MemoirHome />
+          <MemoirHome currentUser={currentUser} />
+        </Route>
+        <Route path="/edit-memoir/:id">
+          <EditMemoir />
         </Route>
         <Route path="/user-home/:id/memories">
           <MemoryGallery />

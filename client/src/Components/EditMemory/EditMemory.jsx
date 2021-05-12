@@ -1,10 +1,12 @@
 import { useState } from 'react'
+import {useParams} from "react-router-dom"
 import { editMemory } from "../../services/memory.js"
 
-function EditMemory(props) {
+function EditMemory() {
   const [input, setInput] = useState({
 
   });
+  const { id, memory_id } = useParams();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setInput((prevState) => ({
@@ -15,14 +17,14 @@ function EditMemory(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await editMemory(props.id, input);
+    const res = await editMemory(id, memory_id, input);
     console.log(res);
   };
 
 
   return (
     <div>
-      <h3>Write Memory</h3>
+      <h3>Edit Memory</h3>
       <form onChange={handleChange} onSubmit={handleSubmit}>
         <label>Memory:</label>
         <textarea name="content" value={input.content} />

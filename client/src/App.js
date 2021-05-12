@@ -53,10 +53,10 @@ function App() {
         <Route path="/edit-memoir/:id">
           <EditMemoir />
         </Route>
-        <Route path="/user-home/:id/memories">
-          <MemoryGallery />
+        <Route exact path="/user-home/:id/memories">
+          <MemoryGallery currentUser={currentUser} />
         </Route>
-        <Route path="/edit-memory/:id">
+        <Route path="/user-home/:id/memories/edit-memoir/:memory_id">
           <EditMemory />
         </Route>
         <Route path="/user-home/:id/photos">

@@ -1,11 +1,11 @@
 import React from 'react'
 import { useState, useEffect } from "react";
-import { useParams} from "react-router-dom";
+import { Link, useParams} from "react-router-dom";
 import { getMemories } from "../../services/memory.js"
 import CreateMemory from "../CreateMemory/CreateMemory.jsx"
 import { deleteMemory } from "../../services/memory.js"
 
-function MemoryGallery() {
+function MemoryGallery(props) {
   const { id } = useParams();
   const [memories, setMemories] = useState([])
 
@@ -23,7 +23,7 @@ function MemoryGallery() {
     await deleteMemory(id);
     setMemories(prevState => prevState.filter(memory => memory.id !== id));
   }
-  
+
   // i need to set up some type of filter that will filter out the 
   // currently selected memoirs memories
 //   let filteredMemory = memories.filter(memory => memory.memoir_id === parseInt(id))  
@@ -38,6 +38,10 @@ function MemoryGallery() {
         <div>
             <h3>{memory.content}</h3>;
             <button onClick={() => deleteMemoryF(memory.id)}>Delete</button>
+
+            {/* {props.currentUser && props.currentUser.id === memory.user_id ? */}
+            <Link to={`/user-home/${memory.id}/memories/edit-memoir/${id}`}>Edit Memoir</Link>
+       {/* : null} */}
         </div>
         )
       })}

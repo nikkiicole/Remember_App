@@ -29,3 +29,15 @@ export const searchMemoir = async (name) => {
   const res = await api.get(`/search/${name}`);
   return res.data;
 }
+
+export const destroyMemoir = async (id) => {
+  api.defaults.headers.common.authorization = `Bearer ${token}`;
+  const res = await api.delete(`/memoirs/${id}`);
+  return res.data;
+};
+
+export const editMemoir = async (id, formData) => {
+  api.defaults.headers.common.authorization = `Bearer ${token}`;
+  const res = await api.put(`/memoirs/${id}`, formData);
+  return res.data;
+}

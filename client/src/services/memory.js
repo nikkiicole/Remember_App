@@ -24,3 +24,8 @@ export const deleteMemory = async (id) => {
   const res = await api.delete(`/memoirs/${id}/memories/${id}`);
   return res.data;
 };
+export const editMemory = async (id, formData) => {
+  api.defaults.headers.common.authorization = `Bearer ${token}`;
+  const res = await api.put(`/memoirs/${id}/memories/${id}`, formData);
+  return res.data;
+}

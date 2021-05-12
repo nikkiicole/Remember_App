@@ -7,6 +7,7 @@ import Header from "./Components/Header/Header.jsx"
 import UserHome from './Components/UserHome/UserHome.jsx'
 import CreateMemoir from "./Components/CreateMemoir/CreateMemoir.jsx"
 import EditMemoir from "./Components/EditMemoir/EditMemoir.jsx"
+import EditMemory from "./Components/EditMemory/EditMemory.jsx"
 import MemoirHome from "./Components/MemoirHome/MemoirHome.jsx"
 import MemoryGallery from "./Components/MemoryGallery/MemoryGallery.jsx"
 import PhotoGallery from "./Components/PhotoGallery/PhotoGallery.jsx"
@@ -54,6 +55,9 @@ function App() {
         </Route>
         <Route path="/user-home/:id/memories">
           <MemoryGallery />
+        </Route>
+        <Route path="/edit-memory/:id">
+          <EditMemory />
         </Route>
         <Route path="/user-home/:id/photos">
           <PhotoGallery />

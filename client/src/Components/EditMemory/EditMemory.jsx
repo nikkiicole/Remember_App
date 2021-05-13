@@ -1,19 +1,16 @@
 import { useState, useEffect } from 'react'
 import {useParams, useHistory} from "react-router-dom"
 import { editMemory } from "../../services/memory.js"
-import { getMemories } from "../../services/memory.js"
+import { getMemory } from "../../services/memory.js"
 
 function EditMemory() {
-  const [input, setInput] = useState({
-
-  });
-  const [memory, setMemory] = useState([])
+  const [memory, setMemory] = useState({})
   const history = useHistory();
 
   const { id, memory_id } = useParams();
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setInput((prevState) => ({
+    setMemory((prevState) => ({
       ...prevState,
       [name]: value,
     }));
@@ -21,7 +18,7 @@ function EditMemory() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await editMemory(id, memory_id, input);
+    const res = await editMemory(id, memory_id, memory);
     console.log(res);
     history.push(`/user-home/${memory_id}/memories`)
   };
@@ -31,7 +28,7 @@ function EditMemory() {
   }, []);
 
   const fetchMemories = async () => {
-    const res = await getMemories(id);
+    const res = await getMemory(id);
     setMemory(res);
     console.log(res)
     // console.log(id)
@@ -41,7 +38,7 @@ function EditMemory() {
       <h3>Edit Memory</h3>
       <form onChange={handleChange} onSubmit={handleSubmit}>
         <label>Memory:</label>
-        <textarea defaultValue={memory.content} name="content" value={input.content} />
+        <textarea name="content" value={memory.content} />
         <input type="submit"/>
       </form>
     </div>

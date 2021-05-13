@@ -1,10 +1,5 @@
-import axios from "axios";
 
-const baseUrl = "http://localhost:3000";
-
-const api = axios.create({
-  baseURL: baseUrl,
-});
+import api from "./auth"
 
 let token = localStorage.getItem("authToken")
 

@@ -1,8 +1,5 @@
 import axios from "axios";
 
-const production = "https://alwaysremember-api.herokuapp.com/"
-const baseUrl = "http://localhost:3000";
-
 let apiUrl;
 const apiUrls = {
   development: "http://localhost:3000",
@@ -40,3 +37,10 @@ export const verifyUser = async () => {
   }
   return false;
 };
+
+export const getUser = async (id) => {
+  const res = await api.get(`/allusers/${id}`);
+  return res.data;
+};
+
+export default api

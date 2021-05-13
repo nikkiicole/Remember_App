@@ -18,7 +18,8 @@ function MemoryGallery(props) {
     const res = await getMemories(id);
     setMemories(res);
     console.log(res)
-    // console.log(id)
+    // console.log(id)'
+    // console.log(props.user)
   }
   const deleteMemoryF = async (id) => {
     await deleteMemory(id);
@@ -38,6 +39,7 @@ function MemoryGallery(props) {
         return(
         <div>
             <h3>{memory.content}</h3>
+            {/* {props.user.user_id === memory.user_id ? <h3>{props.user.email}</h3>: null } */}
             
             {props.currentUser && props.currentUser.id === memory.user_id ?
             <button onClick={() => { if (window.confirm('Are you sure you wish to delete this memory?')) deleteMemoryF(memory.id)} }>Delete</button>: null}

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { createMemoir } from "../../services/memoir.jsx"
 import {useHistory} from "react-router-dom"
-
+import Button from '@material-ui/core/Button'
+import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
+import TextField from '@material-ui/core/TextField';
 
 function CreateMemoir() {
   const history = useHistory();
@@ -29,19 +31,19 @@ function CreateMemoir() {
     <div>
       <h1>Create Memoir</h1>
       <form onChange={handleChange} onSubmit={handleSubmit}>
-        <label>Name</label>
-        <input name="name" type="text" value={input.name} />
-        <label>Sunrise</label>
-        <input name="sunrise" type="text" value={input.sunrise} />
-        <label>Sunset</label>
-        <input name="sunset" type="text" value={input.sunset} />
-        <label>Thoughts</label>
-        <input name="thoughts" type="text" value={input.thoughts} />
-        <label>Shareable Id</label>
-        <input name="shareble_id" type="text" value={input.shareble_id} />
-        <label>Profile Photo URL: </label>
-        <input name="profile_picture" type="text" value={input.profile_picture} />
-        <input type="submit"/>
+       
+        <TextField label="Name" variant="filled" color="secondary"  name="name" type="text" value={input.name} />
+        
+        <TextField label="Sunrise" variant="filled" color="secondary"   name="sunrise" type="text" value={input.sunrise} />
+       
+        <TextField label="Sunset" variant="filled" color="secondary"  name="sunset" type="text" value={input.sunset} />
+    
+        <TextField label="Family Thoughts" variant="filled"  color="secondary"  name="thoughts" type="text" value={input.thoughts} />
+     
+        <TextField label="Shareable ID" variant="filled" color="secondary"  name="shareble_id" type="text" value={input.shareble_id} />
+    
+        <TextField label="Profile Picture URL" variant="filled" color="secondary"   name="profile_picture" type="text" value={input.profile_picture} />
+        <Button startIcon={<CheckBoxOutlinedIcon /> }size="large"variant="contained" color="secondary" type="submit">Submit</Button>
       </form>
     </div>
   )

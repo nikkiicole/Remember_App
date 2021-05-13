@@ -12,16 +12,19 @@ import MemoirHome from "./Components/MemoirHome/MemoirHome.jsx"
 import MemoryGallery from "./Components/MemoryGallery/MemoryGallery.jsx"
 import PhotoGallery from "./Components/PhotoGallery/PhotoGallery.jsx"
 import { useEffect, useState } from "react";
-import { verifyUser } from "./services/auth"
+import { verifyUser, getUser } from "./services/auth"
+
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
+  const[user, setUser] = useState(null)
 
   const { id } = useParams();
   const history = useHistory();
 
   useEffect(() => {
     verify();
+    grabUser();
   }, []);
 
   const logout = async () => {
@@ -34,6 +37,14 @@ function App() {
     let user = await verifyUser();
     setCurrentUser(user);
   };
+
+  const grabUser = async () => {
+    let user = await getUser(id);
+    setUser(user);
+console.log(user)
+  }
+
+
 
 
   return (
@@ -63,7 +74,7 @@ function App() {
           <EditMemoir />
         </Route>
         <Route exact path="/user-home/:id/memories">
-          <MemoryGallery currentUser={currentUser} />
+          <MemoryGallery currentUser={currentUser} user={user} />
         </Route>
         <Route path="/user-home/:id/memories/edit-memoir/:memory_id">
           <EditMemory />

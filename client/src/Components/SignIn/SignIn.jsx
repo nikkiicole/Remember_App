@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { loginUser } from "../../../src/services/auth.js";
-import {useHistory} from "react-router-dom"
+import { useHistory } from "react-router-dom"
+
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button'
+import "./SignIn.css"
+import HowToRegIcon from '@material-ui/icons/HowToReg';
 
 function SignIn(props) {
   const [input, setInput] = useState({});
@@ -25,11 +30,11 @@ function SignIn(props) {
     <div>
       <h1>Sign In</h1>
       <form onChange={handleChange} onSubmit={handleSubmit}>
-        <label>Email</label>
-        <input name="email" type="email" />
-        <label>Password</label>
-        <input name="password" type="password" />
-        <button type="submit">Sign In</button>
+      
+        <TextField label="Email" variant="filled" color="secondary" name="email" type="email" />
+   
+        <TextField label="Password" variant="filled" color="secondary" name="password" type="password" />
+        <Button size="large"variant="contained" color="secondary" startIcon={<HowToRegIcon /> }  type="submit">Sign In</Button>
       </form>
     </div>
   );

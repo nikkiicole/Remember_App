@@ -1,0 +1,58 @@
+.container-container {
+  background-image: url(https://res.cloudinary.com/dbmxg3su8/image/upload/v1620877620/photo-1496661415325-ef852f9e8e7c_wf88ea.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  margin-top: 100px;
+  /* background-color: black; */
+  display: flex;
+  justify-content: center;
+
+  /* align-items: center; */
+}
+.container {
+  background-color: rgba(0, 0, 0, 0.5);
+  /* height: 600px; */
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-content: center;
+  align-items: center;
+}
+
+/* .memoir-header {
+  background-color: white;
+} */
+.profile-picture {
+  display: flex;
+  max-width: 400px;
+  max-height: 400px;
+  width: auto;
+  height: auto;
+}
+
+.button-container {
+  margin: 5px;
+  padding: 5px;
+}
+.link {
+  padding: 10px;
+}
+.delete {
+  padding: 10px;
+  padding-right: 10px;
+}
+
+.memoir-font {
+  color: white;
+}
+.memoir-header {
+  color: white;
+}
+.memoir-thoughts {
+  padding-left: 20px;
+  padding-right: 20px;
+  color: white;
+}

@@ -1,0 +1,27 @@
+/* .form-container {
+ 
+
+  width: 100%;
+  display: flex;
+
+  justify-content: center;
+  background-color: black;
+}
+.form {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+ 
+  align-content: center;
+  align-items: center;
+  background-color: rgb(117, 77, 77);
+}
+
+.sign-up {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  display: flex;
+  width: auto;
+  height: auto;
+} */

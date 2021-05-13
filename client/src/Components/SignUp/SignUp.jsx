@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { registerUser } from "../../services/auth.js";
-import {useHistory} from "react-router-dom"
+import { useHistory } from "react-router-dom"
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button'
+import "./SignUp.css"
+import HowToRegIcon from '@material-ui/icons/HowToReg';
 
 function SignUp() {
   const [input, setInput] = useState({});
@@ -24,15 +28,17 @@ function SignUp() {
   return (
     <div>
       <h1>Sign Up</h1>
-      <form onChange={handleChange} onSubmit={handleSubmit}>
-      <label>Email</label>
-        <input name="email" type="email" />
-        <label>Password</label>
-        <input name="password" type="password" />
-        <label>Password Confirmation</label>
-        <input name="password_confirmation" type="password" />
-        <button type="submit">Sign Up</button>
-      </form>
+      <div className="form-container">
+      <form className="form" onChange={handleChange} onSubmit={handleSubmit}>
+<div className="sign-up">
+        <TextField label="Name" variant="filled" color="secondary" name="email" type="email" />
+   
+        <TextField label="Password" variant="filled" color="secondary" name="password" type="password" />
+        
+        <TextField label="Password Confirmation" variant="filled" color="secondary" name="password_confirmation" type="password" />
+        <Button  size="large"variant="contained" color="secondary" startIcon={<HowToRegIcon /> }  type="submit">Sign Up</Button></div>
+        </form>
+      </div>
     </div>
   );
 }

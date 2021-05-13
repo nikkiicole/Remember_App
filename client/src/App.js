@@ -13,6 +13,7 @@ import MemoryGallery from "./Components/MemoryGallery/MemoryGallery.jsx"
 import PhotoGallery from "./Components/PhotoGallery/PhotoGallery.jsx"
 import { useEffect, useState } from "react";
 import { verifyUser, getUser } from "./services/auth"
+import BelowHeader from "./Components/BelowHeader/BelowHeader.jsx"
 
 
 function App() {
@@ -50,6 +51,7 @@ console.log(user)
   return (
     <div className="App">
       <Header currentUser={currentUser} logout={logout} />
+      <BelowHeader/>
       <Switch>
         <Route path="/signup">
           <SignUp />

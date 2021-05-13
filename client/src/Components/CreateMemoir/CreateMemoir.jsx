@@ -7,6 +7,7 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles, ThemeProvider, createMuiTheme} from "@material-ui/core/styles"
 import pink from '@material-ui/core/colors/pink';
 import grey from '@material-ui/core/colors/grey';
+import CustomizedMenus from "../BackgroundPictureMenu/BackgroundMenu"
 
 import '@fontsource/roboto';
 
@@ -68,6 +69,7 @@ function CreateMemoir() {
     <ThemeProvider theme={theme}>
       <Container maxWidth="md">
         <div>
+          {CustomizedMenus()}
 
           <Grid container spacing={5} justify="center">
           <Grid item xs={12} >

@@ -9,6 +9,12 @@ export const getUsersMemoirs = async () => {
   return res.data.memoirs;
 };
 
+export const getMemoirs = async () => {
+
+  const res = await api.get("/memoirs");
+  return res.data;
+};
+
 export const createMemoir = async (formData) => {
   api.defaults.headers.common.authorization = `Bearer ${token}`;
   const res = await api.post("/memoirs", formData);

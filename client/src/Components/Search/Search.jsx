@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { searchMemoir } from "../../services/memoir.jsx"
+import { searchMemoir, getMemoirs } from "../../services/memoir.jsx"
+
 import { Link } from "react-router-dom";
 import TextField from '@material-ui/core/TextField';
 import Button from  '@material-ui/core/Button'
@@ -11,7 +12,8 @@ function Search() {
 
   });
   const [searchResults, setSearchResults] = useState([]);
-  
+  const [memoirs, setMemoirs] = useState([]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setInput((prevState) => ({
@@ -24,6 +26,13 @@ function Search() {
     e.preventDefault();
     const searchResults = await searchMemoir(input.search);
     setSearchResults(searchResults);
+  }
+
+  const handleSecondSubmit = async (e) => {
+    e.preventDefault();
+    const memoirs = await getMemoirs();
+    setMemoirs(memoirs);
+    console.log(memoirs)
   }
   // const [searchResults, setSearchResults] = useState([]);
   
@@ -47,10 +56,25 @@ function Search() {
         <Button startIcon={<SearchIcon /> }size="large"variant="contained" color="secondary" type="submit">Search</Button>
 
       </form>
+
+      <form onSubmit={handleSecondSubmit}>
+      <TextField name='Shareable ID' onChange={handleChange} placeholder="Enter Shareable ID"label="Name" variant="outlined" color="secondary" />
+
+        <Button startIcon={<SearchIcon /> }size="large"variant="contained" color="secondary" type="submit">Search</Button>
+
+      </form>
       {searchResults.map((searchResult) => {
         return <Link to={`/user-home/${searchResult.id}`}><h1>{searchResult.name}</h1></Link>;
     
       })}
+      
+      {memoirs.map((memoir) => {
+        return <Link to={`/user-home/${memoir.id}`}><h1>{memoir.name}</h1></Link>;
+    
+      })}
+
+{/* {memoir.id  === input ?
+       <Link to={`/user-home/${memoir.id}`}><h1>{memoir.name}</h1></Link>: null} */}
     </div>
   )
 }

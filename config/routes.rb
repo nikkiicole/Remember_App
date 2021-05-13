@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   end
 
   get "/userprofile", to: "users#show"
-  # get "/allusers", to: "users#index"
+  get "/allusers", to: "users#index"
   get "/search/:name", to: "memoirs#search"
+  get "/allusers/:id", to: "users#showone"
 
 # devise provided routes
   devise_for :users, controllers: { registrations: 'registrations' }

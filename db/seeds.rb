@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Memory.destroy_all
-Photo.destroy_all
-Memoir.destroy_all
-User.destroy_all
+# Memory.destroy_all
+# Photo.destroy_all
+# Memoir.destroy_all
+# User.destroy_all
 
 user1 = User.create!(email: "testemail1@yahoo.com", password: "password")
 user2 = User.create!(email: "testemail2@yahoo.com", password: "password")

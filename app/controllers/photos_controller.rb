@@ -6,12 +6,12 @@ class PhotosController < ApiController
   def index
     @photos = Photo.all
 
-    render json: @photos, methods: :url
+    render json: @photos, methods: :url, include: [:user]
   end
 
   # GET /photos/1
   def show
-    render json: @photo, methods: :url
+    render json: @photo, methods: :url, include: [:user]
   end
 
   # POST /photos
@@ -21,7 +21,7 @@ class PhotosController < ApiController
     @photo.memoir = Memoir.find(params[:memoir_id])
 
     if @photo.save
-      render json: @photo, status: :created, methods: :url
+      render json: @photo, status: :created, methods: :url, include: [:user]
     else
       render json: @photo.errors, status: :unprocessable_entity
     end

@@ -7,22 +7,24 @@ import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutline
 import AddBoxRoundedIcon from '@material-ui/icons/AddBoxRounded';
 import "./UserHome.css"
 
-function UserHome() {
+function UserHome(props) {
   const [userMemoirs, setUserMemoirs] = useState([])
+  
 
   useEffect(() => {
-    fetch();
+    fetch()
   }, []);
 
   const fetch = async () => {
     const data = await getUsersMemoirs();
     setUserMemoirs(data);
+    props.setToggle((prevState)=> !prevState)
     console.log(userMemoirs)
   }
 
   return (
     <div className="user-container-container">
-      <h1>Memoirs</h1>
+      <h1 className = "m-title">Memoirs</h1>
       <div className="user-container">
       <div className="memoirs-container">
       {userMemoirs.map((userMemoir) => {
@@ -33,11 +35,11 @@ function UserHome() {
       </div>
         <div className="search-container">
           <div className ="create-container">
-        <h2>Create A New Memoir</h2>
+        <h1 className="create-mem-title">Create A New Memoir</h1>
       <Link className="link" to="/create-memoir"><Button startIcon={<AddBoxRoundedIcon /> }size="large"variant="contained" color="secondary" >Create</Button></Link>
       </div>
 {/* essentially i want to bbe able to display all memoirs.name for current user then link to create a memoir also link search memoirs  */}
-        <Search className="search-component" />
+        <Search  />
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@ let token = localStorage.getItem("authToken")
 
 export const getPhotos = async (id) => {
   const res = await api.get(`/memoirs/${id}`);
-  return res.data.photos;
+  return res.data;
 };
 
 export const createPhoto = async (id, formData) => {

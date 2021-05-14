@@ -20,16 +20,9 @@ class MemoriesController < ApiController
     @memory.user = current_user
     @memory.memoir = Memoir.find(params[:memoir_id])
 
-    # @memory.memoir = current_user.memoir_id
-    # @memory.memoir = current_user.memoirs.(params)
-    
-#     @user = User.find(params[:user_id])
-#    @memoir = @user.memoir.build(memory_params)
-# @memoir = Memoir.find(params[:memoir_id])
-# @memory = @memoir.memories.build(memory_params)
 
     if @memory.save
-      render json: @memory, status: :created
+      render json: @memory, status: :created, include: [:user]
     else
       render json: @memory.errors, status: :unprocessable_entity
     end

@@ -11,7 +11,7 @@ class MemoirsController < ApiController
 
   # GET /memoirs/1
   def show
-    render json: @memoir, include: [ :user, photos:{methods: :url },memories:{include: :user}], methods: :url
+    render json: @memoir, include: [ :user, photos:{methods: :url, include: :user },memories:{include: :user}], methods: :url
   end
 
   # POST /memoirs

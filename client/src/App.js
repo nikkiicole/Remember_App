@@ -1,4 +1,4 @@
-import { Route, Switch, useParams, useHistory } from "react-router-dom";
+import { Route, Switch,  useHistory } from "react-router-dom";
 import './App.css';
 import SignIn from "./Components/SignIn/SignIn.jsx";
 import SignUp from "./Components/SignUp/SignUp.jsx";
@@ -18,14 +18,15 @@ import BelowHeader from "./Components/BelowHeader/BelowHeader.jsx"
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
+  const [toggle, setToggle] = useState(false);
   
 
-  const { id } = useParams();
+
   const history = useHistory();
 
   useEffect(() => {
     verify();
-  }, []);
+  }, [toggle]);
 
   const logout = async () => {
     await localStorage.clear()
@@ -58,7 +59,7 @@ function App() {
         </Route>
         <Route exact path="/user-home">
           {/* <UserHome currentUser={currentUser}/> */}
-          <UserHome/>
+          <UserHome setToggle={setToggle}/>
         </Route>
         <Route path="/create-memoir">
           <CreateMemoir />

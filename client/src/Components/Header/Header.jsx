@@ -1,10 +1,5 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import IconButton from '@material-ui/core/IconButton'
-import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button'
 import HomeIcon from '@material-ui/icons/Home';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
@@ -16,22 +11,24 @@ function Header(props) {
     if (props.currentUser) {
       return (
         <div className="topnav">
-        <h1>Remember</h1>
-        
-        <Link className="link" to="/user-home"><Button startIcon={<HomeIcon /> }size="large"variant="contained" color="secondary" >Home</Button></Link>
-          <Link className="link" to="/create-memoir"><Button startIcon={<HomeIcon /> }size="large"variant="contained" color="secondary" >Create Memoir</Button></Link>
+          <div>
+        <h1 className="logo">Remember</h1>
+          </div>
           
-          <Button startIcon={<MeetingRoomIcon />} size="large" variant="contained" color="secondary" onClick={props.logout}>Sign out</Button>
-          <p>{props.currentUser && props.currentUser.email}</p>
-        </div>
+          <div className="header-group">
+        <Link className="link" to="/user-home"><Button startIcon={<HomeIcon /> }size="medium"variant="contained" color="secondary" >{props.currentUser && props.currentUser.email}</Button></Link>
+          <Link className="link" to="/create-memoir"><Button startIcon={<HomeIcon /> }size="medium"variant="contained" color="secondary" >Create Memoir</Button></Link>
+          
+          <Button startIcon={<MeetingRoomIcon />} size="medium" variant="contained" color="secondary" onClick={props.logout}>Sign out</Button>
+        </div></div>
       )
     } else {
       return (
         <div className="topnav">
             <h1>Remember</h1>
-          <Link className="link" to="/"><Button startIcon={<HomeIcon /> }size="large"variant="contained" color="secondary" >Home</Button></Link>
-        <Link className="link" to="/login"><Button startIcon={<HowToRegIcon /> }size="large"variant="contained" color="secondary" >Sign In</Button></Link>
-          <Link className="link" to="/signup"><Button startIcon={<HowToRegIcon /> }size="large"variant="contained" color="secondary" >Sign Up</Button></Link>
+          <Link className="link" to="/"><Button startIcon={<HomeIcon /> }size="medium"variant="contained" color="secondary" >Home</Button></Link>
+        <Link className="link" to="/login"><Button startIcon={<HowToRegIcon /> }size="medium"variant="contained" color="secondary" >Sign In</Button></Link>
+          <Link className="link" to="/signup"><Button startIcon={<HowToRegIcon /> }size="medium"variant="contained" color="secondary" >Sign Up</Button></Link>
         </div>
       )
     }

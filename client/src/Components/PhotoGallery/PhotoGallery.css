@@ -1,0 +1,67 @@
+/* References: Code for grid was used from https://codepen.io/eHtmlu/pen/BaodGVp */
+
+.picture-grid-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+.picture-grid {
+  width: 50%;
+}
+.myGallery {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.myGallery img {
+  width: 100%;
+  margin: 30px;
+}
+
+.myGallery .item {
+  position: relative;
+  overflow: hidden;
+}
+
+.myGallery .item img {
+  vertical-align: middle;
+}
+
+.myGallery .caption {
+  margin: 0;
+  padding: 1em;
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  /* max-width: 30%; */
+  max-height: 100%;
+  overflow: auto;
+  box-sizing: border-box;
+  transition: transform 0.5s;
+  transform: translateY(100%);
+  background: rgba(0, 0, 0, 0.7);
+  color: rgb(255, 255, 255);
+}
+
+.myGallery .item:hover .caption {
+  transform: translateY(0%);
+}
+
+.photo-body {
+  background-color: #023047;
+  margin-top: 0px;
+  height: 100%;
+}
+
+.gallery-title {
+  color: white;
+  margin-top: 0px;
+  padding-top: 100px;
+  font-size: 50px;
+}

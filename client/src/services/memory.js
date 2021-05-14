@@ -6,10 +6,6 @@ export const getMemories = async (id) => {
   const res = await api.get(`/memoirs/${id}`);
   return res.data;
 };
-// export const getUserEmail = async (id) => {
-//   const res = await api.get(`/memoirs/${id}`);
-//   return res.data.memories;
-// };
 
 export const createMemory = async (id, formData) => {
   api.defaults.headers.common.authorization = `Bearer ${token}`;

@@ -1,30 +1,14 @@
-import { useState, useEffect} from 'react'
+import { useState} from 'react'
 import {createPhoto} from "../../services/photo.jsx"
+import Button from '@material-ui/core/Button'
+import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
+import { ThemeProvider, createMuiTheme} from "@material-ui/core/styles"
+import pink from '@material-ui/core/colors/pink';
+import grey from '@material-ui/core/colors/grey';
 
 
 function CreatePhoto(props) {
-
-
-
-  // const [input, setInput] = useState({
-
-  // });
   
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setInput((prevState) => ({
-  //     ...prevState,
-  //     [name]: value,
-  //   }));
-  // };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const res = await createPhoto(props.id, input);
-  //   props.setToggle((prevState)=> !prevState)
-  //   console.log(res);
-
-  // };
   const [form, setForm] = useState({
     caption: "",
   });
@@ -62,18 +46,41 @@ function CreatePhoto(props) {
     console.log(res);
   };
 
+  const theme = createMuiTheme({
+    typography: {
+      h3: {
+        fontSize: 55
+      }
+    },
+    palette: {
+      primary: {
+ 
+        main: pink[200],
+      },
+      secondary: {
+        main: grey[900],
+     
+    }
+  }
+  })
+
   return (
+    <ThemeProvider theme={theme}>
     <div>
-      <h3>Upload Photo</h3>
+      <h2 className="upload-font">Upload Photo</h2>
       <form onChange={handleFormChange} onSubmit={handleSubmit}>
-        <label>Photo URL: </label>
-        <input name="file" type="file"  />
         <label>Caption: </label>
         <input name="caption" type="text" value={form.caption} />
-        <input type="submit"/>
+        <label>Photo</label>
+        
+        <Button size="large"variant="contained" color="secondary" ><input name="file" type="file"  /></Button>
+      
+          <Button startIcon={<CheckBoxOutlinedIcon /> }size="large"variant="contained" color="secondary" type="submit">Submit</Button>
       </form>
-    </div>
+      </div>
+  </ThemeProvider>
   )
+  
 }
 
 export default CreatePhoto

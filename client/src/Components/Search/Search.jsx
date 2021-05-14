@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import TextField from '@material-ui/core/TextField';
 import Button from  '@material-ui/core/Button'
 import SearchIcon from '@material-ui/icons/Search';
-import { FormGroup, Input } from '@material-ui/core';
+
 
 function Search() {
   const [input, setInput] = useState({
@@ -62,30 +62,30 @@ function Search() {
     <div className="search-component">
       <h1>Search For Memoirs</h1>
       {/* <FormGroup  onSubmit={handleSubmit}> */}
-      <form onSubmit={handleSubmit}>
+      <form className="search-spacer" onSubmit={handleSubmit}>
       <TextField name='search' onChange={handleChange} placeholder="Enter Full Name"label="Name" variant="outlined" color="secondary" />
 
-        <Button startIcon={<SearchIcon /> }size="large"variant="contained" color="secondary" type="submit">Search</Button>
+        <Button startIcon={<SearchIcon /> }size="large"variant="contained" color="secondary" type="submit">Search Name</Button>
 
       </form>
+      <h3>OR</h3>
+      <form className="search-spacer" onSubmit={handleSecondSubmit}>
+      <TextField name='shareble_id' onChange={handleChange} placeholder="Enter Shareable ID"label="Shareble ID" variant="outlined" color="secondary" />
 
-      <form onSubmit={handleSecondSubmit}>
-      <TextField name='shareble_id' onChange={handleChange} placeholder="Enter Shareable ID"label="Name" variant="outlined" color="secondary" />
-
-        <Button startIcon={<SearchIcon /> }size="large"variant="contained" color="secondary" type="submit">Search</Button>
+        <Button startIcon={<SearchIcon /> }size="large"variant="contained" color="secondary" type="submit">Search By ID</Button>
 
       </form>
       {searchResults.map((searchResult) => {
-        return <Link to={`/user-home/${searchResult.id}`}><h1>{searchResult.name}</h1></Link>;
+        return <Link className="search-link"to={`/user-home/${searchResult.id}`}><h1>{searchResult.name}</h1></Link>;
     
       })}
-      
+      {/* <Button size="large" variant="contained" color="secondary" startIcon={<FavoriteBorderOutlinedIcon />}>Memories</Button> */}
       {/* {memoirs.map((memoir) => {
         return <Link to={`/user-home/${memoir.id}`}><h1>{memoir.name}</h1></Link>;
     
       })} */}
 
-{searchMemoir.length > 0 && <Link to={`/user-home/${searchMemoir[0].id}`}><h1>{searchMemoir[0].name}</h1></Link>}
+{searchMemoir.length > 0 && <Link className="search-link" to={`/user-home/${searchMemoir[0].id}`}><h1>{searchMemoir[0].name}</h1></Link>}
        
     </div>
   )

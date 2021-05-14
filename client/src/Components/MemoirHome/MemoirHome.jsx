@@ -76,9 +76,6 @@ function MemoirHome(props) {
 
 
 
-
-
-          
       {props.currentUser && props.currentUser.id === memoir.user_id ?
        <Link className="link" to={`/edit-memoir/${memoir.id}`}><Button size="large" variant="contained" color="secondary" startIcon={<EditOutlinedIcon />}>Edit Profile</Button></Link>: null}
       

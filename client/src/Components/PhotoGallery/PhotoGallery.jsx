@@ -1,17 +1,28 @@
 import React from 'react'
 
 import { useState, useEffect } from "react";
-import { useParams} from "react-router-dom";
+import { Link, useParams} from "react-router-dom";
 import { getPhotos } from "../../services/photo.jsx"
 import CreatePhoto from "../CreatePhoto/CreatePhoto.jsx"
 import { deletePhoto } from "../../services/photo.jsx"
+import "./PhotoGallery.css"
+import Button from '@material-ui/core/Button'
+import HomeIcon from '@material-ui/icons/Home';
+import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 
 
+
+import { ThemeProvider, createMuiTheme} from "@material-ui/core/styles"
+import pink from '@material-ui/core/colors/pink';
+import grey from '@material-ui/core/colors/grey';
+
+// input
 
 function PhotoGallery(props) {
   const { id } = useParams();
-  const [photos, setPhotos] = useState([])
+  const [photosO, setPhotos] = useState([])
   const [toggle, setToggle] = useState(false);
+
 
   useEffect(() => {
     fetchPhotos();
@@ -24,29 +35,56 @@ function PhotoGallery(props) {
   }
   const deletePicture = async (id) => {
     await deletePhoto(id);
-    setPhotos(prevState => prevState.filter(photo => photo.id !== id));
-    
+    setToggle((prevState)=> !prevState)
   }
-
+  const theme = createMuiTheme({
+    typography: {
+      h3: {
+        fontSize: 55
+      }
+    },
+    palette: {
+      primary: {
+ 
+        main: pink[200],
+      },
+      secondary: {
+        main: grey[900],
+     
+    }
+  }
+  })
+  
   return (
-    <div>
-      <h1>Photo Gallery</h1>
+    <ThemeProvider theme={theme}>
+    <div className="photo-body">
+      <h1 className="gallery-title">Photo Gallery</h1>
 
       <CreatePhoto setToggle={setToggle} id={id} />
 
-      {photos.map((photo) => {
+      {photosO.photos && photosO.photos.map((photo) => {
         return (
-          <div>
-        <img src={photo.url} alt={photo.caption} />
+          <div className="picture-grid-container">
+<div className="picture-grid">
+          <div class="myGallery" key={photo.id}>
+              <div class="item">
+              <img src={photo.url} alt={photo.caption} />
+              <span class="caption">
             <h1>{photo.caption}</h1>
-            {props.currentUser && props.currentUser.id === photo.user_id ?
-            <button onClick={() => deletePicture(photo.id)}>Delete</button>: null}
-            
+            <p>Posted By: {photo.user.email }</p>
+            {props.currentUser && props.currentUser.id === photo.user_id ?<Button className="delete" size="large"variant="contained" color="secondary" startIcon={<DeleteOutlineOutlinedIcon /> } onClick={() => deletePicture(photo.id)}>Delete</Button>: null}</span>
+          </div> 
+              </div>
+            </div>
           </div>
         )
   
       })}
-    </div>
+          <Link className="link" to={`/user-home/${id}`}><Button startIcon={<HomeIcon /> }size="large"variant="contained" color="secondary" >Memoir Home</Button></Link>
+      <CreatePhoto setToggle={setToggle} id={id} />
+    
+      </div>
+    </ThemeProvider>
   )
 }
 

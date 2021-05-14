@@ -39,8 +39,6 @@ function EditMemoir() {
         <input name="thoughts" type="text" value={input.thoughts} />
         <label>Shareable Id</label>
         <input name="shareble_id" type="text" value={input.shareble_id} />
-        <label>Profile Photo URL: </label>
-        <input name="profile_picture" type="text" value={input.profile_picture} />
         <input type="submit"/>
       </form>
     </div>

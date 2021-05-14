@@ -7,7 +7,6 @@ import TextField from '@material-ui/core/TextField';
 import { ThemeProvider, createMuiTheme} from "@material-ui/core/styles"
 import pink from '@material-ui/core/colors/pink';
 import grey from '@material-ui/core/colors/grey';
-import Container from "@material-ui/core/Container"
 import "../SignIn/SignIn.css"
 
 function CreateMemoir() {
@@ -53,11 +52,6 @@ console.log(myData)
 };
 
 const theme = createMuiTheme({
-  typography: {
-    h3: {
-      fontSize: 55
-    }
-  },
   palette: {
     primary: {
 
@@ -73,7 +67,7 @@ const theme = createMuiTheme({
   return (
     <ThemeProvider theme={theme}>
 
-        <div className="for-background">
+        <div className="alt-for-background">
         <div className="form-container">
 
     

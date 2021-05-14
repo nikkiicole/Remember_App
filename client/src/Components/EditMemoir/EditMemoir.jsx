@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { editMemoir } from "../../services/memoir.jsx"
-import {useParams, useHistory} from "react-router-dom"
+import { useParams, useHistory } from "react-router-dom"
+import Button from '@material-ui/core/Button'
+import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
+import TextField from '@material-ui/core/TextField';
 
 function EditMemoir() {
   let { id } = useParams()
@@ -26,22 +29,34 @@ function EditMemoir() {
   };
 
   return (
-    <div>
-      <h1>Edit Memoir</h1>
-      <form onChange={handleChange} onSubmit={handleSubmit}>
-        <label>Name</label>
-        <input name="name" type="text" value={input.name} />
-        <label>Sunrise</label>
-        <input name="sunrise" type="text" value={input.sunrise} />
-        <label>Sunset</label>
-        <input name="sunset" type="text" value={input.sunset} />
-        <label>Thoughts</label>
-        <input name="thoughts" type="text" value={input.thoughts} />
-        <label>Shareable Id</label>
-        <input name="shareble_id" type="text" value={input.shareble_id} />
-        <input type="submit"/>
+    <div className="alt-for-background">
+      <div className="form-container">
+        
+        <h1 className="m-title">Edit Memoir</h1>
+        
+        <form className="form" onChange={handleChange} onSubmit={handleSubmit}>
+        <div className="format">
+          <TextField label="Name" variant="outlined" color="secondary" name="name" type="text" value={input.name} />
+            </div>
+            <div className="format">
+          <TextField label="Sunrise" variant="outlined" color="secondary" name="sunrise" type="text" value={input.sunrise} />
+            </div>
+            <div className="format">
+        <TextField  label="Sunset" variant="outlined" color="secondary"  name="sunset" type="text" value={input.sunset} />
+            </div>
+            <div className="format">
+        <TextField label="Family Thoughts" variant="outlined"  color="secondary"  name="thoughts" type="text" value={input.thoughts} />
+          </div>
+          <div className="format">
+        <TextField label="Shareable ID" variant="outlined" color="secondary"  name="shareble_id" type="text" value={input.shareble_id} />
+  </div>
+  <div className="format">
+          <Button startIcon={<CheckBoxOutlinedIcon />} size="large" variant="contained" color="secondary" type="submit">Submit</Button>
+        </div>
       </form>
-    </div>
+      </div>
+      </div>
+        
   )
 }
 

@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { createMemory } from "../../services/memory.js"
-
+import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
+import Button from '@material-ui/core/Button'
+import "../MemoryGallery/MemoryGallery.css"
 function CreateMemory(props) {
   const [input, setInput] = useState({
 
@@ -23,12 +25,12 @@ function CreateMemory(props) {
 
   return (
     <div>
-      <h3>Write Memory</h3>
+      <h3 className="mm.title" >Add A Memory</h3>
       <form onChange={handleChange} onSubmit={handleSubmit}>
-        <label>Memory:</label>
-        <textarea name="content" value={input.content} />
-        <input type="submit"/>
-      </form>
+        <textarea className="textarea" name="content" value={input.content} />
+        <div>
+        <Button startIcon={<CheckBoxOutlinedIcon />} size="large" variant="contained" color="secondary" type="submit">Submit</Button>
+      </div></form>
     </div>
   )
 }

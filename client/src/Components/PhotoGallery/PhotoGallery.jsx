@@ -16,7 +16,6 @@ import { ThemeProvider, createMuiTheme} from "@material-ui/core/styles"
 import pink from '@material-ui/core/colors/pink';
 import grey from '@material-ui/core/colors/grey';
 
-// input
 
 function PhotoGallery(props) {
   const { id } = useParams();

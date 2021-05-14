@@ -44,7 +44,6 @@ function Search() {
   const memoirFilter = () => {
     console.log(memoirs, input.shareble_id)
     let found = memoirs.filter(memoir => memoir.shareble_id === input.shareble_id)
-    console.log(found)
     setSearchMemoir(found)
   }
 

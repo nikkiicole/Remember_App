@@ -65,3 +65,22 @@
   padding-top: 100px;
   font-size: 50px;
 }
+
+.upload-font {
+  color: white;
+}
+
+.form-spacer {
+  margin-left: 10px;
+  color: white;
+  font-size: 25px;
+  margin-right: 10px;
+}
+
+.input-height {
+  height: 28px;
+}
+
+.bottom-margin {
+  padding-bottom: 50px;
+}

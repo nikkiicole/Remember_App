@@ -66,16 +66,16 @@ function CreatePhoto(props) {
 
   return (
     <ThemeProvider theme={theme}>
-    <div>
+    <div className="bottom-margin">
       <h2 className="upload-font">Upload Photo</h2>
       <form onChange={handleFormChange} onSubmit={handleSubmit}>
-        <label>Caption: </label>
-        <input name="caption" type="text" value={form.caption} />
-        <label>Photo</label>
-        
-        <Button size="large"variant="contained" color="secondary" ><input name="file" type="file"  /></Button>
+        <label className="form-spacer">Caption: </label>
+        <input className="input-height" name="caption" type="text" value={form.caption} />
       
-          <Button startIcon={<CheckBoxOutlinedIcon /> }size="large"variant="contained" color="secondary" type="submit">Submit</Button>
+        
+        <Button className="form-spacer" size="large"variant="contained" color="secondary" ><input className="input-height" name="file" type="file"  /></Button>
+      
+          <Button className="form-spacer" startIcon={<CheckBoxOutlinedIcon /> }size="large"variant="contained" color="secondary" type="submit">Submit</Button>
       </form>
       </div>
   </ThemeProvider>

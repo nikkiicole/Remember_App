@@ -8,7 +8,7 @@ import { ThemeProvider, createMuiTheme} from "@material-ui/core/styles"
 import pink from '@material-ui/core/colors/pink';
 import grey from '@material-ui/core/colors/grey';
 import Container from "@material-ui/core/Container"
-
+import "../SignIn/SignIn.css"
 
 function CreateMemoir() {
   const history = useHistory();
@@ -73,31 +73,42 @@ const theme = createMuiTheme({
   return (
     <ThemeProvider theme={theme}>
 
-        <div>
-
+        <div className="for-background">
+        <div className="form-container">
 
     
-          <h1>Create Memoir</h1>
+          <h1 className="m-title">Create Memoir</h1>
           
           
 
-      <form onChange={handleFormChange} onSubmit={handleSubmit}>
-        <TextField label="Name" variant="outlined" color="secondary"  name="name" type="text" value={form.name} />
-        
-        <TextField  label="Sunrise" variant="outlined" color="secondary"   name="sunrise" type="text" value={form.sunrise} />
-       
-        <TextField  label="Sunset" variant="outlined" color="secondary"  name="sunset" type="text" value={form.sunset} />
-    
-        <TextField label="Family Thoughts" variant="outlined"  color="secondary"  name="thoughts" type="text" value={form.thoughts} />
-     
-        <TextField label="Shareable ID" variant="outlined" color="secondary"  name="shareble_id" type="text" value={form.shareble_id} />
-  
+      <form className="form" onChange={handleFormChange} onSubmit={handleSubmit}>
+      <div className="format">
+          <TextField label="Name" variant="outlined" color="primary" name="name" type="text" value={form.name} />
+            </div>
             
-            <Button size="large"variant="contained" color="secondary" type="submit"><input name="file" type="file" /></Button>
+          <div className="format">
+        <TextField  label="Sunrise" variant="outlined" color="primary"   name="sunrise" type="text" value={form.sunrise} />
+            </div>
             
-        <Button startIcon={<CheckBoxOutlinedIcon /> }size="large"variant="contained" color="secondary" type="submit">Submit</Button>
+        <div className="format">
+        <TextField  label="Sunset" variant="outlined" color="primary"  name="sunset" type="text" value={form.sunset} />
+            </div>
+            
+        <div className="format">
+        <TextField label="Family Thoughts" variant="outlined"  color="primary"  name="thoughts" type="text" value={form.thoughts} />
+            </div>
+            
+        <div className="format">
+        <TextField label="Shareable ID" variant="outlined" color="primary"  name="shareble_id" type="text" value={form.shareble_id} />
+  </div>
+        <div className="format">
+            <Button size="large"variant="contained" color="primary" type="submit"><input name="file" type="file" /></Button>
+</div>
+            <div className="format">
+          <Button startIcon={<CheckBoxOutlinedIcon />} size="large" variant="contained" color="primary" type="submit">Submit</Button>
+        </div>
           </form>
-
+</div>
         </div>
     
   </ThemeProvider>)

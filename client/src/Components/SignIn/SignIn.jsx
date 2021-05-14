@@ -27,15 +27,24 @@ function SignIn(props) {
     history.push("/user-home")
   };
   return (
-    <div>
-      <h1>Sign In</h1>
-      <form onChange={handleChange} onSubmit={handleSubmit}>
+    <div className="for-background">
+    <div className="form-container">
+      <h1 className="m-title">Sign In</h1>
       
-        <TextField label="Email" variant="filled" color="secondary" name="email" type="email" />
-   
-        <TextField label="Password" variant="filled" color="secondary" name="password" type="password" />
-        <Button size="large"variant="contained" color="secondary" startIcon={<HowToRegIcon /> }  type="submit">Sign In</Button>
+      <form className="form" onChange={handleChange} onSubmit={handleSubmit}>
+        <div className="format">
+        <TextField label="Email" variant="outlined" color="secondary" name="email" type="email" />
+        </div>
+        <div className="format">
+
+        <TextField label="Password" variant="outlined" color="secondary" name="password" type="password" />
+        </div>
+        <div className="format">
+        <Button size="large" variant="contained" color="secondary" startIcon={<HowToRegIcon />} type="submit">Sign In</Button>
+      </div>
       </form>
+  
+      </div>
     </div>
   );
 }

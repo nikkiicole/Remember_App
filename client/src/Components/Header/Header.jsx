@@ -25,11 +25,15 @@ function Header(props) {
     } else {
       return (
         <div className="topnav">
-            <h1>Remember</h1>
+
+              <div>
+        <h1 className="logo">Remember</h1>
+          </div>
+          <div className="header-group">
           <Link className="link" to="/"><Button startIcon={<HomeIcon /> }size="medium"variant="contained" color="secondary" >Home</Button></Link>
         <Link className="link" to="/login"><Button startIcon={<HowToRegIcon /> }size="medium"variant="contained" color="secondary" >Sign In</Button></Link>
           <Link className="link" to="/signup"><Button startIcon={<HowToRegIcon /> }size="medium"variant="contained" color="secondary" >Sign Up</Button></Link>
-        </div>
+        </div></div>
       )
     }
   }

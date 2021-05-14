@@ -29,7 +29,7 @@ function MemoirHome(props) {
     history.push('/user-home');
   }
 
-  const [background, setBackground] = useState("white-bg-flowers");
+  const [background, setBackground] = useState("wood-flowers");
 
   
 
@@ -44,21 +44,9 @@ function MemoirHome(props) {
     <div className={background}>
     <div className="container">
       {/* need to replace second half with real website to see if it is working  */}
-      <h1 className="memoir-header">{`${memoir.name}'s Memoir`}</h1>
-      <img className="profile-picture" src={memoir.url} alt= "Profile Photo" />
-      <h2 className="memoir-font">Name: {memoir.name}</h2>
-      <h2 className="memoir-font">Sunrise: {memoir.sunrise}</h2>
-      <h2 className="memoir-font">Sunset: {memoir.sunset}</h2>
-      <h2 className="memoir-thoughts">Family Thoughts: {memoir.thoughts}</h2>
-      <a href={`https://www.facebook.com/share.php?u=http://localhost:3001/user-home/${id}`}><img src="https://res.cloudinary.com/dbmxg3su8/image/upload/v1620875227/Screen_Shot_2021-05-12_at_11.05.53_PM_yo0kb2.png" border="0" /></a>
-        <h2 className="memoir-font">Shareable Id: {memoir.shareble_id}</h2>
-        <div className="button-container">
-      {props.currentUser && props.currentUser.id === memoir.user_id ?
-        <Button className="delete" size="large"variant="contained" color="secondary" startIcon={<DeleteOutlineOutlinedIcon /> } onClick={() => { if (window.confirm('Are you sure you wish to delete this memoir?')) deleteMemoir(memoir.id) }}>Delete</Button> : null}
-      
-    
-<form>
-      <select className="input-select" id="backgroundImage" required onChange={handleInput} value = "design">
+        <h1 className="memoir-header">{`${memoir.name}'s Memoir`}</h1>
+        
+        <select className="input-select" id="backgroundImage" required onChange={handleInput} value = "design">
         <option value = "white-bg-flowers" >White Background White Flowers</option>
               <option value="blue-flowers">Blue Background With Flowers </option>
               <option value="white-pink-flowers">White Background Pink Flowers </option>
@@ -71,8 +59,21 @@ function MemoirHome(props) {
               <option value="white-fall">White Background Fall Leaf Header </option>
               <option value="yellow-flowers">Yellow Background White Flower Footer</option>
               <option value="mint-wood">Mint Wood Background Pink Flowers</option>
-      </select>    
-</form>
+        </select>
+        
+
+      <img className="profile-picture" src={memoir.url} alt= "Profile Photo" />
+      <h2 className="memoir-font">Name: {memoir.name}</h2>
+      <h2 className="memoir-font">Sunrise: {memoir.sunrise}</h2>
+      <h2 className="memoir-font">Sunset: {memoir.sunset}</h2>
+      <h2 className="memoir-thoughts">Family Thoughts: {memoir.thoughts}</h2>
+      <a href={`https://www.facebook.com/share.php?u=http://localhost:3001/user-home/${id}`}><img src="https://res.cloudinary.com/dbmxg3su8/image/upload/v1620875227/Screen_Shot_2021-05-12_at_11.05.53_PM_yo0kb2.png" border="0" /></a>
+        <h2 className="memoir-font">Shareable Id: {memoir.shareble_id}</h2>
+        <div className="button-container">
+      {props.currentUser && props.currentUser.id === memoir.user_id ?
+        <Button className="delete" size="large"variant="contained" color="secondary" startIcon={<DeleteOutlineOutlinedIcon /> } onClick={() => { if (window.confirm('Are you sure you wish to delete this memoir?')) deleteMemoir(memoir.id) }}>Delete</Button> : null}
+      
+    
 
 
 

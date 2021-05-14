@@ -26,20 +26,27 @@ function SignUp() {
   };
 
   return (
-    <div>
-      <h1>Sign Up</h1>
-      <div className="form-container">
+    <div className="for-background">
+    <div className="form-container">
+      <h1 className="m-title">Sign Up</h1>
+      
       <form className="form" onChange={handleChange} onSubmit={handleSubmit}>
-<div className="sign-up">
-        <TextField label="Name" variant="filled" color="secondary" name="email" type="email" />
-   
-        <TextField label="Password" variant="filled" color="secondary" name="password" type="password" />
-        
+      <div className="format">
+        <TextField label="Name" variant="outlined" color="secondary" name="email" type="email" />
+   </div>
+        <div className="format">
+        <TextField label="Password" variant="outlined" color="secondary" name="password" type="password" />
+            </div>
+            <div className="format">
         <TextField label="Password Confirmation" variant="filled" color="secondary" name="password_confirmation" type="password" />
-        <Button  size="large"variant="contained" color="secondary" startIcon={<HowToRegIcon /> }  type="submit">Sign Up</Button></div>
+         
+          </div>
+          <div className="format">
+          <Button size="large" variant="contained" color="secondary" startIcon={<HowToRegIcon />} type="submit">Sign Up</Button>
+</div>
         </form>
-      </div>
-    </div>
+    
+    </div></div>
   );
 }
 

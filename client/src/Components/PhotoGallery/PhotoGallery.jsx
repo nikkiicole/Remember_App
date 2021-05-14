@@ -61,7 +61,7 @@ function PhotoGallery(props) {
       <h1 className="gallery-title">Photo Gallery</h1>
 
       <CreatePhoto setToggle={setToggle} id={id} />
-
+      <Link className="link" to={`/user-home/${id}`}><Button startIcon={<HomeIcon /> }size="large"variant="contained" color="secondary" >Memoir Home</Button></Link>
       {photosO.photos && photosO.photos.map((photo) => {
         return (
           <div className="picture-grid-container">
@@ -80,9 +80,10 @@ function PhotoGallery(props) {
         )
   
       })}
-          <Link className="link" to={`/user-home/${id}`}><Button startIcon={<HomeIcon /> }size="large"variant="contained" color="secondary" >Memoir Home</Button></Link>
-      <CreatePhoto setToggle={setToggle} id={id} />
-    
+          
+      
+        <Link className="link" to={`/user-home/${id}`}><Button startIcon={<HomeIcon />} size="large" variant="contained" color="secondary" >Memoir Home</Button></Link>
+        <CreatePhoto setToggle={setToggle} id={id} />
       </div>
     </ThemeProvider>
   )

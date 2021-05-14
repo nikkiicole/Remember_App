@@ -7,7 +7,7 @@ import { deleteMemory } from "../../services/memory.js"
 
 function MemoryGallery(props) {
   const { id } = useParams();
-  const [memories, setMemories] = useState([])
+  const [memoriesO, setMemories] = useState([])
   const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
@@ -26,21 +26,16 @@ function MemoryGallery(props) {
     setMemories(prevState => prevState.filter(memory => memory.id !== id));
   }
 
-  // i need to set up some type of filter that will filter out the 
-  // currently selected memoirs memories
-//   let filteredMemory = memories.filter(memory => memory.memoir_id === parseInt(id))  
-// console.log(filteredMemory, memories, parseInt(id))
+
  
   return (
     <div>
       <h1>Memory Gallery</h1>
-   
-      {memories.map((memory) => {
+      { memoriesO && memoriesO.memories.map((memory) => {
         return(
-        <div>
+        <div key={memory.id}>
             <h3>{memory.content}</h3>
-            {/* {props.user.user_id === memory.user_id ? <h3>{props.user.email}</h3>: null } */}
-            
+             <p>{memory.user.email }</p>
             {props.currentUser && props.currentUser.id === memory.user_id ?
             <button onClick={() => { if (window.confirm('Are you sure you wish to delete this memory?')) deleteMemoryF(memory.id)} }>Delete</button>: null}
             {props.currentUser && props.currentUser.id === memory.user_id ?
@@ -48,6 +43,7 @@ function MemoryGallery(props) {
         </div>
         )
       })}
+     
    <CreateMemory setToggle={setToggle} id={id} />
     </div>
   )

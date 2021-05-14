@@ -37,7 +37,7 @@ function PhotoGallery(props) {
       {photos.map((photo) => {
         return (
           <div>
-        <img src={photo.img_url} alt={photo.caption} />
+        <img src={photo.url} alt={photo.caption} />
             <h1>{photo.caption}</h1>
             {props.currentUser && props.currentUser.id === photo.user_id ?
             <button onClick={() => deletePicture(photo.id)}>Delete</button>: null}

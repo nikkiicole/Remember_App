@@ -42,12 +42,15 @@ function CreateMemoir() {
     }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const res = await createMemoir(input);
-    console.log(res);
-    history.push('/user-home')
-  };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const myData = new FormData();
+  //   myData.append("picture", fileInput.file);
+  //   // myData.append("caption", form.caption);
+  //   const res = await createMemoir(myData);
+  //   console.log(res);
+  //   history.push('/user-home')
+  // };
   const theme = createMuiTheme({
     typography: {
       h3: {
@@ -64,7 +67,48 @@ function CreateMemoir() {
         // main: pink[200],
     }
   }
-})
+  })
+  
+  const [form, setForm] = useState({
+   
+  });
+
+  const [fileInput, setFileInput] = useState({});
+
+  const handleFormChange = (e) => {
+    const { name, value, files } = e.target;
+    if (name === "file") {
+      handleFileUpload(files);
+    } else {
+      setForm((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+    }
+  };
+
+  const handleFileUpload = (files) => {
+    let file = {
+      file: files[0],
+    };
+    setFileInput(file);
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+  const myData = new FormData();
+  myData.append("picture", fileInput.file);
+    myData.append("name", form.name);
+    myData.append("sunrise", form.sunrise);
+    myData.append("sunset", form.sunset);
+    myData.append("thoughts", form.thoughts);
+    myData.append("shareble_id", form.shareble_id);
+console.log(myData)
+    const res = await createMemoir(myData);
+    // props.setToggle((prevState)=> !prevState)
+  console.log(res);
+};
+
   return (
     <ThemeProvider theme={theme}>
       <Container maxWidth="md">
@@ -90,21 +134,31 @@ function CreateMemoir() {
         </Grid>
     
         <Typography variant="h3">Create Memoir</Typography>
-      <form onChange={handleChange} onSubmit={handleSubmit}>
+      <form onChange={handleFormChange} onSubmit={handleSubmit}>
        <ButtonStyled />
-        <TextField label="Name" variant="filled" color="secondary"  name="name" type="text" value={input.name} />
+        <TextField label="Name" variant="filled" color="secondary"  name="name" type="text" value={form.name} />
         
-        <TextField label="Sunrise" variant="filled" color="secondary"   name="sunrise" type="date" value={input.sunrise} />
+        <TextField label="Sunrise" variant="filled" color="secondary"   name="sunrise" type="date" value={form.sunrise} />
        
-        <TextField label="Sunset" variant="filled" color="secondary"  name="sunset" type="date" value={input.sunset} />
+        <TextField label="Sunset" variant="filled" color="secondary"  name="sunset" type="date" value={form.sunset} />
     
-        <TextField label="Family Thoughts" variant="filled"  color="secondary"  name="thoughts" type="text" value={input.thoughts} />
+        <TextField label="Family Thoughts" variant="filled"  color="secondary"  name="thoughts" type="text" value={form.thoughts} />
      
-        <TextField label="Shareable ID" variant="filled" color="secondary"  name="shareble_id" type="text" value={input.shareble_id} />
+        <TextField label="Shareable ID" variant="filled" color="secondary"  name="shareble_id" type="text" value={form.shareble_id} />
     
-        <TextField label="Profile Picture URL" variant="filled" color="secondary"   name="profile_picture" type="text" value={input.profile_picture} />
+            {/* <TextField label="Profile Picture URL" variant="filled" color="secondary"   name="profile_picture" type="text" value={input.profile_picture} /> */}
+            <input name="file" type="file"  />
         <Button startIcon={<CheckBoxOutlinedIcon /> }size="large"variant="contained" color="secondary" type="submit">Submit</Button>
-      </form>
+          </form>
+          <h3>Upload Photo</h3>
+      {/* <form onChange={handleFormChange} onSubmit={handlePhotoSubmit}>
+        <label>Photo URL: </label>
+        <input name="file" type="file"  />
+        {/* <label>Caption: </label> */}
+        {/* <input name="caption" type="text" value={form.caption} /> */}
+        {/* <input type="submit"/> */} */
+      {/* </form> */}
+
         </div>
         </Container>
   </ThemeProvider>)

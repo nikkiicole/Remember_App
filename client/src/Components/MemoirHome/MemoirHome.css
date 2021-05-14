@@ -1,4 +1,70 @@
-.container-container {
+.white-bg-flowers {
+  background-image: url(https://res.cloudinary.com/dbmxg3su8/image/upload/v1620877620/emmadaviesphotography-2153_ohofxu.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  margin-top: 100px;
+  /* background-color: black; */
+  display: flex;
+  justify-content: center;
+
+  /* align-items: center; */
+}
+.blue-flowers {
+  background-image: url(https://res.cloudinary.com/dbmxg3su8/image/upload/v1620876764/Website_Background_dllwxy.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  margin-top: 100px;
+  /* background-color: black; */
+  display: flex;
+  justify-content: center;
+
+  /* align-items: center; */
+}
+.white-pink-flowers {
+  background-image: url(https://res.cloudinary.com/dbmxg3su8/image/upload/v1620877620/photo-1543157145-f78c636d023d_ozgskp.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  margin-top: 100px;
+  /* background-color: black; */
+  display: flex;
+  justify-content: center;
+
+  /* align-items: center; */
+}
+.white-flowers {
+  background-image: url(https://res.cloudinary.com/dbmxg3su8/image/upload/v1620877620/photo-1498769768077-b89b32334e23_kq0bdw.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  margin-top: 100px;
+  /* background-color: black; */
+  display: flex;
+  justify-content: center;
+
+  /* align-items: center; */
+}
+
+.pink-white-stripe {
+  background-image: url(https://res.cloudinary.com/dbmxg3su8/image/upload/v1620878293/61k7tTqq55L._AC__rutbvn.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  margin-top: 100px;
+  /* background-color: black; */
+  display: flex;
+  justify-content: center;
+
+  /* align-items: center; */
+}
+.wood-flowers {
   background-image: url(https://res.cloudinary.com/dbmxg3su8/image/upload/v1620877620/photo-1496661415325-ef852f9e8e7c_wf88ea.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -11,6 +77,85 @@
 
   /* align-items: center; */
 }
+.white-leaf {
+  background-image: url(https://res.cloudinary.com/dbmxg3su8/image/upload/v1620878965/lovely-watercolor-background-with-hand-painted-leaves_62432-384_pg5kei.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  margin-top: 100px;
+  /* background-color: black; */
+  display: flex;
+  justify-content: center;
+
+  /* align-items: center; */
+}
+.green-tree {
+  background-image: url(https://res.cloudinary.com/dbmxg3su8/image/upload/v1620878293/pngtree-simple-green-big-tree-background-material-image_141050_psaeww.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  margin-top: 100px;
+  /* background-color: black; */
+  display: flex;
+  justify-content: center;
+
+  /* align-items: center; */
+}
+.wood-pink-flowers {
+  background-image: url(https://res.cloudinary.com/dbmxg3su8/image/upload/v1620878965/81-XvDPK1lL._AC__vtoaxb.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  margin-top: 100px;
+  /* background-color: black; */
+  display: flex;
+  justify-content: center;
+
+  /* align-items: center; */
+}
+.white-fall {
+  background-image: url(https://res.cloudinary.com/dbmxg3su8/image/upload/v1620878965/3b150810ff0e3e9315ba939b7de8dd96_ghzuhz.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  margin-top: 100px;
+  /* background-color: black; */
+  display: flex;
+  justify-content: center;
+
+  /* align-items: center; */
+}
+.yellow-flowers {
+  background-image: url(https://res.cloudinary.com/dbmxg3su8/image/upload/v1620878965/white-baby-breath-s-flower-yellow-background_23-2148048412_n2aq7d.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  margin-top: 100px;
+  /* background-color: black; */
+  display: flex;
+  justify-content: center;
+
+  /* align-items: center; */
+}
+.mint-wood {
+  background-image: url(https://res.cloudinary.com/dbmxg3su8/image/upload/v1620878965/71etBszn8BL._AC_SL1000__jgbax0.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  margin-top: 100px;
+  /* background-color: black; */
+  display: flex;
+  justify-content: center;
+
+  /* align-items: center; */
+}
+
 .container {
   background-color: rgba(0, 0, 0, 0.5);
   /* height: 600px; */

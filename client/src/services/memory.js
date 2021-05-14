@@ -4,9 +4,12 @@ let token = localStorage.getItem("authToken")
 
 export const getMemories = async (id) => {
   const res = await api.get(`/memoirs/${id}`);
-  return res.data.memories;
+  return res.data;
 };
-
+// export const getUserEmail = async (id) => {
+//   const res = await api.get(`/memoirs/${id}`);
+//   return res.data.memories;
+// };
 
 export const createMemory = async (id, formData) => {
   api.defaults.headers.common.authorization = `Bearer ${token}`;

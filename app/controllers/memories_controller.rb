@@ -6,12 +6,12 @@ class MemoriesController < ApiController
   def index
     @memories = Memory.all
 
-    render json: @memories
+    render json: @memories, include: [:user]
   end
 
   # GET /memories/1
   def show
-    render json: @memory
+    render json: @memory, include: [:user]
   end
 
   # POST /memories

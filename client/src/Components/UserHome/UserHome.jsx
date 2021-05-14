@@ -21,17 +21,25 @@ function UserHome() {
   }
 
   return (
-    <div>
-      <h1>User Home</h1>
+    <div className="user-container-container">
+      <h1>Memoirs</h1>
+      <div className="user-container">
+      <div className="memoirs-container">
       {userMemoirs.map((userMemoir) => {
         // return <Link to={`/user-home/${userMemoir.id}`}><button>{userMemoir.name}</button></Link>;
         return <Link className="link" to={`/user-home/${userMemoir.id}`}><Button startIcon={<FavoriteBorderOutlinedIcon /> }size="large"variant="contained" color="secondary" >{userMemoir.name}</Button></Link>;
    
       })}
+      </div>
+        <div className="search-container">
+          <div className ="create-container">
+        <h2>Create A New Memoir</h2>
       <Link className="link" to="/create-memoir"><Button startIcon={<AddBoxRoundedIcon /> }size="large"variant="contained" color="secondary" >Create</Button></Link>
-      
+      </div>
 {/* essentially i want to bbe able to display all memoirs.name for current user then link to create a memoir also link search memoirs  */}
-      <Search />
+        <Search className="search-component" />
+        </div>
+      </div>
     </div>
   )
 }

@@ -6,12 +6,12 @@ class PhotosController < ApiController
   def index
     @photos = Photo.all
 
-    render json: @photos
+    render json: @photos, methods: :url
   end
 
   # GET /photos/1
   def show
-    render json: @photo
+    render json: @photo, methods: :url
   end
 
   # POST /photos
@@ -21,7 +21,7 @@ class PhotosController < ApiController
     @photo.memoir = Memoir.find(params[:memoir_id])
 
     if @photo.save
-      render json: @photo, status: :created
+      render json: @photo, status: :created, methods: :url
     else
       render json: @photo.errors, status: :unprocessable_entity
     end
@@ -34,7 +34,7 @@ class PhotosController < ApiController
       @photo.memoir = Memoir.find(params[:memoir_id])
       render json: @photo
     else
-      render json: @photo.errors, status: :unprocessable_entity
+      render json: @photo.errors, status: :unprocessable_entity, methods: :url
     end
   end
 
@@ -53,6 +53,6 @@ class PhotosController < ApiController
 
     # Only allow a list of trusted parameters through.
     def photo_params
-      params.require(:photo).permit(:caption, :img_url, :memoir_id)
+      params.permit(:picture, :caption, :img_url, :memoir_id)
     end
 end

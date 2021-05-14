@@ -1,27 +1,38 @@
-/* .form-container {
- 
-
-  width: 100%;
-  display: flex;
-
-  justify-content: center;
-  background-color: black;
-}
-.form {
-  width: 60%;
+.user-container-container {
   display: flex;
   flex-direction: column;
- 
+  flex-wrap: nowrap;
+  justify-content: space-around;
   align-content: center;
   align-items: center;
-  background-color: rgb(117, 77, 77);
 }
 
-.sign-up {
+.user-container {
   order: 0;
   flex: 0 1 auto;
   align-self: auto;
   display: flex;
-  width: auto;
-  height: auto;
-} */
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-content: space-between;
+  align-items: center;
+  /* margin: 30px; */
+}
+
+.create-container {
+  padding: 100px;
+}
+
+.search-component {
+  padding: 100px;
+}

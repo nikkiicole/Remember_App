@@ -18,8 +18,8 @@ function Header(props) {
         <div className="topnav">
         <h1>Remember</h1>
         
-        <Link to="/user-home"><Button startIcon={<HomeIcon /> }size="large"variant="contained" color="secondary" >Home</Button></Link>
-          <Link to="/create-memoir"><Button startIcon={<HomeIcon /> }size="large"variant="contained" color="secondary" >Create Memoir</Button></Link>
+        <Link className="link" to="/user-home"><Button startIcon={<HomeIcon /> }size="large"variant="contained" color="secondary" >Home</Button></Link>
+          <Link className="link" to="/create-memoir"><Button startIcon={<HomeIcon /> }size="large"variant="contained" color="secondary" >Create Memoir</Button></Link>
           
           <Button startIcon={<MeetingRoomIcon />} size="large" variant="contained" color="secondary" onClick={props.logout}>Sign out</Button>
           <p>{props.currentUser && props.currentUser.email}</p>
@@ -29,9 +29,9 @@ function Header(props) {
       return (
         <div className="topnav">
             <h1>Remember</h1>
-          <Link to="/"><Button startIcon={<HomeIcon /> }size="large"variant="contained" color="secondary" >Home</Button></Link>
-        <Link to="/login"><Button startIcon={<HowToRegIcon /> }size="large"variant="contained" color="secondary" >Sign In</Button></Link>
-          <Link to="/signup"><Button startIcon={<HowToRegIcon /> }size="large"variant="contained" color="secondary" >Sign Up</Button></Link>
+          <Link className="link" to="/"><Button startIcon={<HomeIcon /> }size="large"variant="contained" color="secondary" >Home</Button></Link>
+        <Link className="link" to="/login"><Button startIcon={<HowToRegIcon /> }size="large"variant="contained" color="secondary" >Sign In</Button></Link>
+          <Link className="link" to="/signup"><Button startIcon={<HowToRegIcon /> }size="large"variant="contained" color="secondary" >Sign Up</Button></Link>
         </div>
       )
     }

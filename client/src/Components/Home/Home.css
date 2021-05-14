@@ -1,0 +1,17 @@
+.home-background {
+  background-color: #023047;
+  height: 500px;
+  margin-top: 0px;
+}
+
+.home-title {
+  color: white;
+  margin-top: 0px;
+  padding-top: 100px;
+}
+
+.home-font {
+  color: white;
+  padding: 40px;
+  font-style: italic;
+}

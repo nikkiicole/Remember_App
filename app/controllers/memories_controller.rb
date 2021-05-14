@@ -50,12 +50,12 @@ class MemoriesController < ApiController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_memory
       @memory = Memory.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+
     def memory_params
       params.require(:memory).permit(:content, :memoir_id, :user_id)
     end

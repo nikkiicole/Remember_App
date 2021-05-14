@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from "react";
-import { Link, useParams, useHistory} from "react-router-dom";
+import { Link, useParams} from "react-router-dom";
 import { getMemories } from "../../services/memory.js"
 import CreateMemory from "../CreateMemory/CreateMemory.jsx"
 import { deleteMemory } from "../../services/memory.js"
@@ -15,18 +15,18 @@ function MemoryGallery(props) {
   const { id } = useParams();
   const [memoriesO, setMemories] = useState([])
   const [toggle, setToggle] = useState(false);
-  const history = useHistory();
+
 
   useEffect(() => {
+    // eslint-disable-next-line 
     fetchMemories();
+// eslint-disable-next-line
   }, [toggle]);
 
   const fetchMemories = async () => {
     const res = await getMemories(id);
     setMemories(res);
-    console.log(res)
-    // console.log(id)'
-    // console.log(props.user)
+
   }
   const deleteMemoryF = async (id) => {
     await deleteMemory(id);

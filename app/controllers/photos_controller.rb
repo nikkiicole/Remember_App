@@ -46,12 +46,12 @@ class PhotosController < ApiController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_photo
       @photo = Photo.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+
     def photo_params
       params.permit(:picture, :caption, :img_url, :memoir_id)
     end

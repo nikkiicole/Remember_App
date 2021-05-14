@@ -12,14 +12,16 @@ function UserHome(props) {
   
 
   useEffect(() => {
+    // eslint-disable-next-line
     fetch()
+    // eslint-disable-next-line
   }, []);
 
   const fetch = async () => {
     const data = await getUsersMemoirs();
     setUserMemoirs(data);
     props.setToggle((prevState)=> !prevState)
-    console.log(userMemoirs)
+
   }
 
   return (
@@ -28,8 +30,8 @@ function UserHome(props) {
       <div className="user-container">
       <div className="memoirs-container">
       {userMemoirs.map((userMemoir) => {
-        // return <Link to={`/user-home/${userMemoir.id}`}><button>{userMemoir.name}</button></Link>;
-        return <Link className="link" to={`/user-home/${userMemoir.id}`}><Button startIcon={<FavoriteBorderOutlinedIcon /> }size="large"variant="contained" color="secondary" >{userMemoir.name}</Button></Link>;
+    
+        return <Link key={userMemoir.id} className="link" to={`/user-home/${userMemoir.id}`}><Button startIcon={<FavoriteBorderOutlinedIcon /> }size="large"variant="contained" color="secondary" >{userMemoir.name}</Button></Link>;
    
       })}
       </div>
@@ -38,7 +40,7 @@ function UserHome(props) {
         <h1 className="create-mem-title">Create A New Memoir</h1>
       <Link className="link" to="/create-memoir"><Button startIcon={<AddBoxRoundedIcon /> }size="large"variant="contained" color="secondary" >Create</Button></Link>
       </div>
-{/* essentially i want to bbe able to display all memoirs.name for current user then link to create a memoir also link search memoirs  */}
+
         <Search  />
         </div>
       </div>

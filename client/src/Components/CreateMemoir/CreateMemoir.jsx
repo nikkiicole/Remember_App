@@ -93,7 +93,7 @@ const theme = createMuiTheme({
             </div>
             
         <div className="format">
-        <TextField label="Shareable ID" variant="outlined" color="primary"  name="shareble_id" type="text" value={form.shareble_id} />
+        <TextField label="Six Digit Shareble ID" variant="outlined" color="primary"  name="shareble_id" type="text" value={form.shareble_id} />
   </div>
         <div className="format">
             <Button size="large"variant="contained" color="primary" type="submit"><input name="file" type="file" /></Button>

@@ -24,7 +24,9 @@ function PhotoGallery(props) {
 
 
   useEffect(() => {
+    // eslint-disable-next-line
     fetchPhotos();
+    // eslint-disable-next-line
   }, [toggle]);
 
   const fetchPhotos = async () => {
@@ -63,9 +65,9 @@ function PhotoGallery(props) {
       <Link className="link" to={`/user-home/${id}`}><Button startIcon={<HomeIcon /> }size="large"variant="contained" color="secondary" >Memoir Home</Button></Link>
       {photosO.photos && photosO.photos.map((photo) => {
         return (
-          <div className="picture-grid-container">
+          <div key={photo.id} className="picture-grid-container">
 <div className="picture-grid">
-          <div class="myGallery" key={photo.id}>
+          <div class="myGallery" >
               <div class="item">
               <img src={photo.url} alt={photo.caption} />
               <span class="caption">
@@ -81,8 +83,7 @@ function PhotoGallery(props) {
       })}
           
       
-        <Link className="link" to={`/user-home/${id}`}><Button startIcon={<HomeIcon />} size="large" variant="contained" color="secondary" >Memoir Home</Button></Link>
-        <CreatePhoto setToggle={setToggle} id={id} />
+ 
       </div>
     </ThemeProvider>
   )

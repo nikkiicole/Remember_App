@@ -15,7 +15,7 @@ class MemoirsController < ApiController
   end
 
   # POST /memoirs
-# this allows only the current user to be set as the user associated with the created memoir
+
   def create
     puts params
     @memoir = Memoir.new(memoir_params)
@@ -51,12 +51,12 @@ class MemoirsController < ApiController
     render json: @results 
   end
   private
-    # Use callbacks to share common setup or constraints between actions.
+   
     def set_memoir
       @memoir = Memoir.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+
     def memoir_params
       params.permit(:name, :thoughts, :shareble_id, :sunrise, :sunset, :profile_picture, :picture)
     end

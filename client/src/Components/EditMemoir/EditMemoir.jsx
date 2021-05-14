@@ -10,7 +10,7 @@ function EditMemoir() {
   const history = useHistory();
 
   const [input, setInput] = useState({
-    // memoir: id
+
   });
 
   const handleChange = (e) => {

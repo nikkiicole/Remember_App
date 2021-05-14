@@ -3,21 +3,19 @@ class Memoir < ApplicationRecord
   has_many :memories, dependent: :destroy
   has_many :photos, dependent: :destroy
 
-  # validates :name, presence: true
-  # validates :sunrise, presence: true
-  # validates :sunset, presence: true
-  # validates :thoughts, presence: true
-  # validates :shareble_id, length: { is: 6 }, uniqueness: true
+  validates :name, presence: true
+  validates :sunrise, presence: true
+  validates :sunset, presence: true
+  validates :thoughts, presence: true
+  validates :shareble_id, length: { is: 6 }, uniqueness: true
 
   has_one_attached :picture
-  
+
   def url
     puts picture.inspect
     picture.url
   end
-  # def self.text_search(query)
-  #   self.where("similarity(name, ?) > 0.2", query).order("similarity(name, #{ActiveRecord::Base.connection.quote(query)}) DESC")
-  # end
+
   # skinny arrow makes a lambda 
   # Arel helps to write SQL code 
   scope :name_search, ->(name) {

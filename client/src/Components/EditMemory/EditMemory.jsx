@@ -28,13 +28,13 @@ function EditMemory() {
 
   useEffect(() => {
     fetchMemories();
+    // eslint-disable-next-line
   }, []);
 
   const fetchMemories = async () => {
     const res = await getMemory(id);
     setMemory(res);
-    console.log(res)
-    // console.log(id)
+
   }
   return (
     <div className="blue-background">

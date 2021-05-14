@@ -33,11 +33,12 @@ function Search() {
     e.preventDefault();
     const memoirs = await getMemoirs();
     setMemoirs(memoirs);
-    // console.log(memoirs)
   }
 
   useEffect(() => {
+    // eslint-disable-next-line
     memoirFilter()
+    // eslint-disable-next-line
   }, [memoirs])
 
   const memoirFilter = () => {
@@ -46,22 +47,11 @@ function Search() {
     console.log(found)
     setSearchMemoir(found)
   }
-  // const [searchResults, setSearchResults] = useState([]);
-  
-  // useEffect(() => {
-  //   fetchMemoir();
-  // }, []);
-
-  // const fetchMemoir = async () => {
-  //   const res = await handleSubmit;
-  //   setSearchResults(res);
-  //   console.log(res)
-  // }
 
   return (
     <div className="search-component">
       <h1>Search For Memoirs</h1>
-      {/* <FormGroup  onSubmit={handleSubmit}> */}
+   
       <form className="search-spacer" onSubmit={handleSubmit}>
       <TextField name='search' onChange={handleChange} placeholder="Enter Full Name"label="Name" variant="outlined" color="secondary" />
 
@@ -76,17 +66,12 @@ function Search() {
 
       </form>
       {searchResults.map((searchResult) => {
-        return <Link className="search-link"to={`/user-home/${searchResult.id}`}><h1>{searchResult.name}</h1></Link>;
+        return <Link key={searchResult.id} className="search-link"to={`/user-home/${searchResult.id}`}><h1>{searchResult.name}</h1></Link>;
     
       })}
-      {/* <Button size="large" variant="contained" color="secondary" startIcon={<FavoriteBorderOutlinedIcon />}>Memories</Button> */}
-      {/* {memoirs.map((memoir) => {
-        return <Link to={`/user-home/${memoir.id}`}><h1>{memoir.name}</h1></Link>;
-    
-      })} */}
+
 
 {searchMemoir.length > 0 && <Link className="search-link" to={`/user-home/${searchMemoir[0].id}`}><h1>{searchMemoir[0].name}</h1></Link>}
-       
     </div>
   )
 }

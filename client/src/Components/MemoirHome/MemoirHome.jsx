@@ -16,6 +16,7 @@ function MemoirHome(props) {
 
   useEffect(() => {
     fetchMemoir();
+    // eslint-disable-next-line
   }, []);
 
   const fetchMemoir = async () => {
@@ -35,7 +36,7 @@ function MemoirHome(props) {
 
   function handleInput(event) {
 
-    let { id, value } = event.target;
+    let { value } = event.target;
     setBackground(value)
     console.log(background)
 }
@@ -62,12 +63,12 @@ function MemoirHome(props) {
         </select>
         
 
-      <img className="profile-picture" src={memoir.url} alt= "Profile Photo" />
+      <img className="profile-picture" src={memoir.url} alt= "Profile" />
       <h2 className="memoir-font">Name: {memoir.name}</h2>
       <h2 className="memoir-font">Sunrise: {memoir.sunrise}</h2>
       <h2 className="memoir-font">Sunset: {memoir.sunset}</h2>
       <h2 className="memoir-thoughts">Family Thoughts: {memoir.thoughts}</h2>
-      <a href={`https://www.facebook.com/share.php?u=http://localhost:3001/user-home/${id}`}><img src="https://res.cloudinary.com/dbmxg3su8/image/upload/v1620875227/Screen_Shot_2021-05-12_at_11.05.53_PM_yo0kb2.png" border="0" /></a>
+      <a href={`https://www.facebook.com/share.php?u=http://localhost:3001/user-home/${id}`}><img src="https://res.cloudinary.com/dbmxg3su8/image/upload/v1620875227/Screen_Shot_2021-05-12_at_11.05.53_PM_yo0kb2.png" alt= "facebook logo" border="0" /></a>
         <h2 className="memoir-font">Shareable Id: {memoir.shareble_id}</h2>
         <div className="button-container">
       {props.currentUser && props.currentUser.id === memoir.user_id ?

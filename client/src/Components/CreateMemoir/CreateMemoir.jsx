@@ -81,11 +81,11 @@ const theme = createMuiTheme({
             </div>
             
           <div className="format">
-        <TextField  label="Sunrise" variant="outlined" color="primary"   name="sunrise" type="date" value={form.sunrise} />
+        <TextField  label="Sunrise" variant="outlined" color="primary"   name="sunrise" type="text" value={form.sunrise} />
             </div>
             
         <div className="format">
-        <TextField  label="Sunset" variant="outlined" color="primary"  name="sunset" type="date" value={form.sunset} />
+        <TextField  label="Sunset" variant="outlined" color="primary"  name="sunset" type="text" value={form.sunset} />
             </div>
             
         <div className="format">

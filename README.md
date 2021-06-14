@@ -145,6 +145,6 @@ src
 ---
 ## Notes
 -https://github.com/cgibsonmm/Devise_JWT_Warden used for devise authentication
-## Code Showcase
+
 
 ## Code Issues & Resolutions

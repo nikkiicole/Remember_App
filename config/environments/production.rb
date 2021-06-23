@@ -110,4 +110,22 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+  # Lograge config
+config.lograge.enabled = true
+
+# This specifies to log in JSON format
+config.lograge.formatter = Lograge::Formatters::Json.new
+
+## Disables log coloration
+config.colorize_logging = false
+
+# Log to a dedicated file
+config.lograge.logger = ActiveSupport::Logger.new(File.join(Rails.root, 'log', "#{Rails.env}.log"))
+
+# This is useful if you want to log query parameters
+config.lograge.custom_options = lambda do |event|
+    { :ddsource => 'ruby',
+      :params => event.payload[:params].reject { |k| %w(controller action).include? k }
+    }
+end
 end

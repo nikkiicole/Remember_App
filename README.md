@@ -137,7 +137,7 @@ src
 
 **Post MVP**
 
-- Allow for image upload using files on users computer
+- Allow for image upload using files on users computer(achieved)
 - Allow comments and individual show page for photos
 - Allow comments nested in stories on the stories page.
 - Better restriction on User Profile allowing the creator to accept requests ro add their create memoir to another users account.

@@ -1,7 +1,7 @@
 import React from "react";
 
 function Datadog() {
-  return <div>Datadog Test1!</div>;
+  return <div>Datadog Testf1!</div>;
 }
 
 export default Datadog;

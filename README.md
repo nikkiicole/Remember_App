@@ -100,7 +100,7 @@ src
       |__ memory.jsx
 ```
 
-#### Time Estimates
+<!-- #### Time Estimates
 
 | Component                              | Priority | Estimated Time | Time Invested | Actual Time |
 | -------------------------------------- | :------: | :------------: | :-----------: | :---------: |
@@ -123,7 +123,7 @@ src
 | Ruby Seed Data                         |    H     |     .5hrs      |      TBD      |     TBD     |
 | Total                                  |          |     49hrs      |      TBD      |     TBD     |
 
-<br>
+<br> -->
 
 ### Server (Back End)
 
